@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d _book"
+    "deploy": "gh-pages -d _book",
+    "build": "Rscript -e \"bookdown::render_book('index.Rmd', 'all')\""
   },
   "repository": {
     "type": "git",
