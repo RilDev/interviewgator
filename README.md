@@ -4,7 +4,7 @@ _Review and practice common data structures to prepare for your... interviewgati
 
 Stack: [ BookDown ](https://bookdown.org/)
 
-Website URL: 
+Website URL: [https://rildev.github.io/interviewgator/](https://rildev.github.io/interviewgator/)
 
 Acknowledgement: This book is based of Andrei Neagoie's [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/)
 
