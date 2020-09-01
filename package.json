@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d _book",
-    "build": "Rscript -e \"bookdown::render_book('index.Rmd', 'all')\""
+    "build": "Rscript -e \"bookdown::render_book('index.Rmd', 'all')\"",
+    "start": "xdg-open _book/index.html"
   },
   "repository": {
     "type": "git",
