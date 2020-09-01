@@ -74,3 +74,4 @@ Rscript -e "bookdown::render_book('index.Rmd', 'all')"
 - [ ] [ Format ](https://bookdown.org/yihui/bookdown/output-formats.html) the book in PDF/E-Book (without the Playground section)
 - [ ] [ Publish ](https://bookdown.org/yihui/bookdown/publishing.html) the book on [https://bookdown.org/](https://bookdown.org/) and GitHub Pages
 - [ ] Share the result on ZtM's Discord chat
+- [ ] implement multi-ligual pages to switch between JS and Lua (and more?)

@@ -12,3 +12,5 @@ output:
 _Review and practice common data structures to prepare for your... interviewgation!_
 
 In this book based on Andrei Neagoie's [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/) you will be able to learn/review common data structures, algorithms and interview techniques.
+
+PS: if you are looking for a job, you should totally checkout [Andrei's courses](https://www.udemy.com/user/andrei-neagoie/)!
