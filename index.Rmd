@@ -1,6 +1,5 @@
 ---
-title: "A Book"
-author: "Frida Gomam"
+title: "Interviewgator"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -8,10 +7,8 @@ output:
   #bookdown::pdf_book: default
 ---
 
-# Hello World
+# Preface {-}
 
-Hi.
+_Review and practice common data structures to prepare for your... interviewgation!_
 
-Bye.
-
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+In this book based on Andrei Neagoie's [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/) you will be able to learn/review common data structures, algorithms and interview techniques.
