@@ -68,6 +68,12 @@
 <li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a><ul>
 <li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on---linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) - Linear Time</a></li>
 <li class="chapter" data-level="1.2" data-path="big-o-notation.html"><a href="big-o-notation.html#o1---constant-time"><i class="fa fa-check"></i><b>1.2</b> O(1) - Constant Time</a></li>
+<li class="chapter" data-level="1.3" data-path="big-o-notation.html"><a href="big-o-notation.html#big-o-simplification"><i class="fa fa-check"></i><b>1.3</b> Big O Simplification</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-1-worst-case"><i class="fa fa-check"></i><b>1.3.1</b> Rule 1: Worst Case</a></li>
+<li class="chapter" data-level="1.3.2" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-2-remove-constants"><i class="fa fa-check"></i><b>1.3.2</b> Rule 2: Remove Constants</a></li>
+<li class="chapter" data-level="1.3.3" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-3-different-terms-for-inputs"><i class="fa fa-check"></i><b>1.3.3</b> Rule 3: Different Terms For Inputs</a></li>
+<li class="chapter" data-level="1.3.4" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-4-drop-non-dominants"><i class="fa fa-check"></i><b>1.3.4</b> Rule 4: Drop Non Dominants</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>2</b> Data Structures</a></li>
 <li class="chapter" data-level="3" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>3</b> Algorithms</a></li>
@@ -103,7 +109,7 @@
 <p class="caption"><em>Big O Complexity Chart from <a href="https://www.bigocheatsheet.com/">bigocheatsheet.com</a></em></p>
 </div>
 <p>As we can see, the <code>O(1)</code> and <code>O(log n)</code> are the most performant scripts and the <code>O(n!)</code>and <code>O(2^n)</code> are the least perfomant scripts.</p>
-<p>When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing static elements.</p>
+<p>When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing constants, different terms for input and droping the non dominant. For more information please head to the <a href="big-o-notation.html#big-o-simplification">Big O Simplification</a> section.</p>
 <div id="on---linear-time" class="section level2">
 <h2><span class="header-section-number">1.1</span> O(n) - Linear Time</h2>
 <p>This is probably the most common Big O notation. It simply means that when you have an input of <code>n</code> the script will perform <code>n</code> operations on it.</p>
@@ -148,7 +154,44 @@ function firstTwoElements(array) {
 
 firstTwoElements(bigArray);</code></pre>
 <p>Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" target="_blan">repl.it</a>!</p>
+</div>
+<div id="big-o-simplification" class="section level2">
+<h2><span class="header-section-number">1.3</span> Big O Simplification</h2>
+<p>Usually, when calculating the Big O of a function. We don’t go through the whole function adding every variable assignment, loops and so on, we give the general trend of the function when called with a big input.</p>
+<p><strong>Example:</strong></p>
+<pre><code>function complexBigONotation(input) {
+  let a = 10; //O(1)
+  a = 50 + 3; //O(1)
 
+  for (let i = 0; i &lt; input.length; i++) { //O(n)
+    anotherFunction(); //O(n)
+    let extraBoolean = true; //O(n)
+    a++; //O(n)
+  }
+
+  for (let i = 0; i &lt; input.length; i++) { //O(n)
+    a++; //O(n)
+  }
+
+  return a; //O(1)
+}
+
+//gives: O(n + n + n + n + n + n + 1 + 1 + 1) = O(6n + 3) = O(6n) = O(n)</code></pre>
+<p>This example function is actually an <code>O(n)</code> function.</p>
+<p>Here is how we simplify a Big O notation.</p>
+<div id="rule-1-worst-case" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Rule 1: Worst Case</h3>
+</div>
+<div id="rule-2-remove-constants" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Rule 2: Remove Constants</h3>
+</div>
+<div id="rule-3-different-terms-for-inputs" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> Rule 3: Different Terms For Inputs</h3>
+</div>
+<div id="rule-4-drop-non-dominants" class="section level3">
+<h3><span class="header-section-number">1.3.4</span> Rule 4: Drop Non Dominants</h3>
+
+</div>
 </div>
 </div>
             </section>
