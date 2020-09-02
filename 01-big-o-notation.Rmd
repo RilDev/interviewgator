@@ -11,3 +11,72 @@ But how can we mesure code efficiency?
 Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
 
 ![_Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/)_](./assets/big-o-complexity-chart.jpeg) 
+
+As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
+
+When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing static elements.
+
+## O(n) - Linear Time
+
+This is probably the most common Big O notation. It simply means that when you have an input of `n` the script will perform `n` operations on it.
+
+As the number of input increases, the number of operations increases in a linear fashion.
+
+If you input an array of size 100, the function will perform 100 operations, if you input an array of 1000000 items, it will perform 1000000 operations!
+
+__Example:__
+
+```
+const bigArray = new Array(100).fill(0);
+
+function loopArray(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.count(array[i]);
+  }
+}
+
+loopArray(bigArray);
+```
+
+Try it out on [repl.it](https://repl.it/@RilDev/On-Linear-Time#index.js){target="_blank"}!
+
+## O(1) - Constant Time
+
+Another very common Big O notation. It is the most efficient Big O there is! No matter the size of the input, the function will always perform only one operation.
+
+The input could be an array of 1, 100 or 1000000 elements, the function will always do only 1 operation.
+
+__Example:__
+
+```
+const bigArray = new Array(100).fill(0);
+
+function firstElement(array) {
+  console.count(array[0])
+}
+
+firstElement(bigArray);
+```
+
+Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time#index.js){target="_blan"}!
+
+__Note:__
+
+If there are multiple operations in the O(1) function, we still write it O(1).
+
+Because no matter how big the input is, the number of operation stills the same, the execution time is still constant.
+
+```
+const bigArray = new Array(100).fill(0);
+
+function firstTwoElements(array) {
+  console.count(array[0]); //O(1)
+  console.count(array[1]); //O(1)
+  //... //O(1)
+  //gives: O(1 + 1 + ...) = O(1)
+}
+
+firstTwoElements(bigArray);
+```
+
+Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){target="_blan"}!
