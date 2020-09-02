@@ -1,9 +1,9 @@
 [
-["index.html", "Interviewgator Preface", " Interviewgator Preface Review and practice common data structures to prepare for your… interviewgation! In this book based on Andrei Neagoie’s Master the Coding Interview: Data Structures + Algorithms you will be able to learn/review common data structures, algorithms and interview techniques. "],
-["big-o-notation.html", "1 Big O Notation", " 1 Big O Notation "],
+["index.html", "Interviewgator Preface", " Interviewgator Preface Review and practice common data structures to prepare for your… interviewgation! In this book based on Andrei Neagoie’s Master the Coding Interview: Data Structures + Algorithms you will be able to learn/review common data structures, algorithms and interview techniques. PS: if you are looking for a job, you should totally checkout Andrei’s courses! "],
+["big-o-notation.html", "1 Big O Notation", " 1 Big O Notation What is good code? Good code is a code that is readable and scalable. Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is. It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down. So it is very important to optimize the code to make sure it runs as fast as possible. But how can we mesure code efficiency? Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function): Big O Complexity Chart from bigocheatsheet.com "],
 ["data-structures.html", "2 Data Structures", " 2 Data Structures "],
 ["algorithms.html", "3 Algorithms", " 3 Algorithms "],
 ["non-technical.html", "4 Non Technical", " 4 Non Technical "],
-["playground.html", "5 Playground", " 5 Playground "],
-["resources.html", "6 Resources", " 6 Resources Master the Coding Interview: Data Structures + Algorithms: The online course this course is based upon "]
+["playground.html", "5 Playground", " 5 Playground Coming Soon… "],
+["resources.html", "6 Resources", " 6 Resources Master the Coding Interview: Data Structures + Algorithms: The online course this book is based upon repl.it: online coding environment bigocheatsheet.com: Big O notation graph and common data structures operations "]
 ]
