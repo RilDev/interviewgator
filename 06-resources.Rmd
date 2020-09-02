@@ -1,5 +1,5 @@
 # Resources
 
-- [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/): The online course this book is based upon
-- [repl.it](https://repl.it/): online coding environment
-- [bigocheatsheet.com](https://www.bigocheatsheet.com/): Big O notation graph and common data structures operations
+- [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/){target="_blank"}: The online course this book is based upon
+- [repl.it](https://repl.it/){target="_blank"}: online coding environment
+- [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}: Big O notation graph and common data structures operations
