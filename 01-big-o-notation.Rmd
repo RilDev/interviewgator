@@ -14,7 +14,7 @@ Here is what code efficiency looks like on a Big O chart (Elements is the amount
 
 As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
 
-When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing static elements.
+When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing constants, different terms for input and droping the non dominant. For more information please head to the [Big O Simplification] section.
 
 ## O(n) - Linear Time
 
@@ -80,3 +80,42 @@ firstTwoElements(bigArray);
 ```
 
 Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){target="_blan"}!
+
+## Big O Simplification
+
+Usually, when calculating the Big O of a function. We don't go through the whole function adding every variable assignment, loops and so on, we give the general trend of the function when called with a big input.
+
+__Example:__
+
+```
+function complexBigONotation(input) {
+  let a = 10; //O(1)
+  a = 50 + 3; //O(1)
+
+  for (let i = 0; i < input.length; i++) { //O(n)
+    anotherFunction(); //O(n)
+    let extraBoolean = true; //O(n)
+    a++; //O(n)
+  }
+
+  for (let i = 0; i < input.length; i++) { //O(n)
+    a++; //O(n)
+  }
+
+  return a; //O(1)
+}
+
+//gives: O(n + n + n + n + n + n + 1 + 1 + 1) = O(6n + 3) = O(6n) = O(n)
+```
+
+This example function is actually an `O(n)` function.
+
+Here is how we simplify a Big O notation.
+
+### Rule 1: Worst Case
+
+### Rule 2: Remove Constants
+
+### Rule 3: Different Terms For Inputs
+
+### Rule 4: Drop Non Dominants
