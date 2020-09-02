@@ -66,7 +66,8 @@
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a><ul>
-<li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on-linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) <em>Linear Time</em></a></li>
+<li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on---linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) - Linear Time</a></li>
+<li class="chapter" data-level="1.2" data-path="big-o-notation.html"><a href="big-o-notation.html#o1---constant-time"><i class="fa fa-check"></i><b>1.2</b> O(1) - Constant Time</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>2</b> Data Structures</a></li>
 <li class="chapter" data-level="3" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>3</b> Algorithms</a></li>
@@ -103,11 +104,13 @@
 </div>
 <p>As we can see, the <code>O(1)</code> and <code>O(log n)</code> are the most performant scripts and the <code>O(n!)</code>and <code>O(2^n)</code> are the least perfomant scripts.</p>
 <p>When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing static elements.</p>
-<div id="on-linear-time" class="section level2">
-<h2><span class="header-section-number">1.1</span> O(n) <em>Linear Time</em></h2>
+<div id="on---linear-time" class="section level2">
+<h2><span class="header-section-number">1.1</span> O(n) - Linear Time</h2>
 <p>This is probably the most common Big O notation. It simply means that when you have an input of <code>n</code> the script will perform <code>n</code> operations on it.</p>
-<p>Example:</p>
-<pre><code>const bigArray = new Array(10000).fill(0);
+<p>As the number of input increases, the number of operations increases in a linear fashion.</p>
+<p>If you input an array of size 100, the function will perform 100 operations, if you input an array of 1000000 items, it will perform 1000000 operations!</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray = new Array(100).fill(0);
 
 function loopArray(array) {
   for (let i = 0; i &lt; array.length; i++) {
@@ -117,6 +120,34 @@ function loopArray(array) {
 
 loopArray(bigArray);</code></pre>
 <p>Try it out on <a href="https://repl.it/@RilDev/On-Linear-Time#index.js" target="_blank">repl.it</a>!</p>
+</div>
+<div id="o1---constant-time" class="section level2">
+<h2><span class="header-section-number">1.2</span> O(1) - Constant Time</h2>
+<p>Another very common Big O notation. It is the most efficient Big O there is! No matter the size of the input, the function will always perform only one operation.</p>
+<p>The input could be an array of 1, 100 or 1000000 elements, the function will always do only 1 operation.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray = new Array(100).fill(0);
+
+function firstElement(array) {
+  console.count(array[0])
+}
+
+firstElement(bigArray);</code></pre>
+<p>Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time#index.js" target="_blan">repl.it</a>!</p>
+<p><strong>Note:</strong></p>
+<p>If there are multiple operations in the O(1) function, we still write it O(1).</p>
+<p>Because no matter how big the input is, the number of operation stills the same, the execution time is still constant.</p>
+<pre><code>const bigArray = new Array(100).fill(0);
+
+function firstTwoElements(array) {
+  console.count(array[0]); //O(1)
+  console.count(array[1]); //O(1)
+  //... //O(1)
+  //gives: O(1 + 1 + ...) = O(1)
+}
+
+firstTwoElements(bigArray);</code></pre>
+<p>Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" target="_blan">repl.it</a>!</p>
 
 </div>
 </div>
