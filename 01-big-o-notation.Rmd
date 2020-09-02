@@ -1,1 +1,13 @@
 # Big O Notation
+
+What is good code? Good code is a code that is __readable__ and __scalable__.
+
+Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.
+
+It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down. So it is very important to optimize the code to make sure it runs as fast as possible.
+
+But how can we mesure code efficiency?
+
+Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
+
+![_Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/)_](./assets/big-o-complexity-chart.jpeg) 
