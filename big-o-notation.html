@@ -65,7 +65,9 @@
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a></li>
+<li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a><ul>
+<li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on-linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) <em>Linear Time</em></a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>2</b> Data Structures</a></li>
 <li class="chapter" data-level="3" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>3</b> Algorithms</a></li>
 <li class="chapter" data-level="4" data-path="non-technical.html"><a href="non-technical.html"><i class="fa fa-check"></i><b>4</b> Non Technical</a></li>
@@ -99,7 +101,24 @@
 <img src="assets/big-o-complexity-chart.jpeg" alt="Big O Complexity Chart from bigocheatsheet.com" />
 <p class="caption"><em>Big O Complexity Chart from <a href="https://www.bigocheatsheet.com/">bigocheatsheet.com</a></em></p>
 </div>
+<p>As we can see, the <code>O(1)</code> and <code>O(log n)</code> are the most performant scripts and the <code>O(n!)</code>and <code>O(2^n)</code> are the least perfomant scripts.</p>
+<p>When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing static elements.</p>
+<div id="on-linear-time" class="section level2">
+<h2><span class="header-section-number">1.1</span> O(n) <em>Linear Time</em></h2>
+<p>This is probably the most common Big O notation. It simply means that when you have an input of <code>n</code> the script will perform <code>n</code> operations on it.</p>
+<p>Example:</p>
+<pre><code>const bigArray = new Array(10000).fill(0);
 
+function loopArray(array) {
+  for (let i = 0; i &lt; array.length; i++) {
+    console.count(array[i]);
+  }
+}
+
+loopArray(bigArray);</code></pre>
+<p>Try it out on <a href="https://repl.it/@RilDev/On-Linear-Time#index.js" target="_blank">repl.it</a>!</p>
+
+</div>
 </div>
             </section>
 
