@@ -64,7 +64,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i><b>0.1</b> Acknowledgement</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#print"><i class="fa fa-check"></i><b>0.2</b> Print</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#repository"><i class="fa fa-check"></i><b>0.3</b> Repository</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a><ul>
 <li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on---linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) - Linear Time</a></li>
 <li class="chapter" data-level="1.2" data-path="big-o-notation.html"><a href="big-o-notation.html#o1---constant-time"><i class="fa fa-check"></i><b>1.2</b> O(1) - Constant Time</a></li>
@@ -106,7 +110,7 @@
 <p>Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):</p>
 <div class="figure">
 <img src="assets/big-o-complexity-chart.jpeg" alt="Big O Complexity Chart from bigocheatsheet.com" />
-<p class="caption"><em>Big O Complexity Chart from <a href="https://www.bigocheatsheet.com/">bigocheatsheet.com</a></em></p>
+<p class="caption">Big O Complexity Chart from <a href="https://www.bigocheatsheet.com/" target="_blank">bigocheatsheet.com</a></p>
 </div>
 <p>As we can see, the <code>O(1)</code> and <code>O(log n)</code> are the most performant scripts and the <code>O(n!)</code>and <code>O(2^n)</code> are the least perfomant scripts.</p>
 <p>When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing constants, different terms for input and droping the non dominant. For more information please head to the <a href="big-o-notation.html#big-o-simplification">Big O Simplification</a> section.</p>
@@ -125,7 +129,11 @@ function loopArray(array) {
 }
 
 loopArray(bigArray);</code></pre>
-<p>Try it out on <a href="https://repl.it/@RilDev/On-Linear-Time#index.js" target="_blank">repl.it</a>!</p>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/On-Linear-Time#index.js" target="_blank">repl.it</a>!
+</p>
+</div>
 </div>
 <div id="o1---constant-time" class="section level2">
 <h2><span class="header-section-number">1.2</span> O(1) - Constant Time</h2>
@@ -139,7 +147,11 @@ function firstElement(array) {
 }
 
 firstElement(bigArray);</code></pre>
-<p>Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time#index.js" target="_blan">repl.it</a>!</p>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time#index.js" target="_blan">repl.it</a>!
+</p>
+</div>
 <p><strong>Note:</strong></p>
 <p>If there are multiple operations in the O(1) function, we still write it O(1).</p>
 <p>Because no matter how big the input is, the number of operation stills the same, the execution time is still constant.</p>
@@ -153,7 +165,11 @@ function firstTwoElements(array) {
 }
 
 firstTwoElements(bigArray);</code></pre>
-<p>Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" target="_blan">repl.it</a>!</p>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" target="_blan">repl.it</a>!
+</p>
+</div>
 </div>
 <div id="big-o-simplification" class="section level2">
 <h2><span class="header-section-number">1.3</span> Big O Simplification</h2>
@@ -181,12 +197,98 @@ firstTwoElements(bigArray);</code></pre>
 <p>Here is how we simplify a Big O notation.</p>
 <div id="rule-1-worst-case" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Rule 1: Worst Case</h3>
+<p>When calculating Big O, we always asume that we are running the function in a worst case scenario. So if we have to loop through an input to look for a value we asume that we always have to loop through all the intems in the input.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray = new Array(100).fill(0);
+bigArray.push(1);
+
+function loopArray(array) {
+  for (let i = 0; i &lt; array.length; i++) {
+    console.count(array[i]);
+    if (array[i] === 1) break;
+  }
+}
+
+loopArray(bigArray);</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Worst-Case#index.js" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>Functions with loops looping over the input <code>for (let i = 0; i &lt; input.length)</code> will always be at least <code>O(n)</code>.</p>
 </div>
 <div id="rule-2-remove-constants" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Rule 2: Remove Constants</h3>
+<p>When calculating the Big O notation of a function, we remove all the elements that would become unsignificant when feeding huge inputs to our function.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray = new Array(100).fill(0);
+
+function complexFunction(array) {
+  console.log(array[0]); //O(1)
+
+  for (let i = 0; i &lt; 10; i++) { //O(10)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i &lt; Math.floor(array.length / 2); i++) { //O(n/2)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i &lt; array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i &lt; array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+}
+
+complexFunction(bigArray);
+
+
+//gives: O(1 + 10 + n/2 + n + n) = O(2n + n/2 + 11) = O(2n + n/2) = O(2n + n) = O(3n) = O(n)</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Remove-Constants#index.js" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>The function in the previous block gives us <code>O(2n + n/2 + 11)</code>.</p>
+<ul>
+<li><p>If we had an input of <code>10000</code> elements, the constant of <code>11</code> would be negligeable. So we remove it: <code>O(2n + n/2)</code></p></li>
+<li><p>If we had an input of <code>10000000</code> elements, dividing by two has a decreasingly important effect. So we remove it: <code>O(2n + n)</code> = <code>O(3n)</code></p></li>
+<li><p>And finally, because <code>O(n)</code> and <code>O(3n)</code> are both linear time Big O’s (the number of calculations increase linearly as the size of the input increases), we drop the multiplier: <code>O(n)</code></p></li>
+</ul>
+<p>Remember, Big O is about knowing the trend of a function when processing a lot of data. Therefore, if there are fixed operations that are always done by the function not matter the size of the input, we don’t include them in our calculation. The same way, if there are multiple calculations that are of the same type (like here, <code>linear time</code>) we reduce it the one of the Big O notations on the chart (so <code>O(3n)</code> becomes <code>O(n)</code>).</p>
 </div>
 <div id="rule-3-different-terms-for-inputs" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Rule 3: Different Terms For Inputs</h3>
+<p>When there are multiple inputs, you have to indicate it in the Big O notation.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray1 = Array(100).fill(0);
+const bigArray2 = Array(1000).fill(1);
+
+function multipleInputs(array1, array2) {
+  for (let i = 0; i &lt; array1.length; i++) {
+    console.count(array1[i]);
+  }
+  
+  for (let i = 0; i &lt; array2.length; i++) {
+    console.count(array2[i]);
+  }
+}
+
+multipleInputs(bigArray1, bigArray2);
+
+//gives: O(n+m)
+//NOT: O(2n) = O(n)</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Different-Terms-For-Inputs#index.js" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>This function is <strong>NOT</strong> <code>O(n)</code> because there are multiple inputs that can be of a totally different sizes.</p>
+<p>So the third rule of Big O precises that we have to diffrenciate those inputs in the Big O notation.</p>
+<p>Here the notation is: <code>O(n+m)</code></p>
 </div>
 <div id="rule-4-drop-non-dominants" class="section level3">
 <h3><span class="header-section-number">1.3.4</span> Rule 4: Drop Non Dominants</h3>

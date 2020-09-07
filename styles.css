@@ -1,3 +1,9 @@
 .caption {
   text-align: center;
+  font-size: 14px;
+  font-style: italic;
+}
+
+pre ~ .caption {
+  margin-top: -1.275em;
 }
