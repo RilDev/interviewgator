@@ -195,4 +195,38 @@ Remember, Big O is about knowing the trend of a function when processing a lot o
 
 ### Rule 3: Different Terms For Inputs
 
+When there are multiple inputs, you have to indicate it in the Big O notation.
+
+__Example:__
+
+```
+const bigArray1 = Array(100).fill(0);
+const bigArray2 = Array(1000).fill(1);
+
+function multipleInputs(array1, array2) {
+  for (let i = 0; i < array1.length; i++) {
+    console.count(array1[i]);
+  }
+  
+  for (let i = 0; i < array2.length; i++) {
+    console.count(array2[i]);
+  }
+}
+
+multipleInputs(bigArray1, bigArray2);
+
+//gives: O(n+m)
+//NOT: O(2n) = O(n)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Simplification-Different-Terms-For-Inputs#index.js){target="_blank"}!
+```
+
+This function is __NOT__ `O(n)` because there are multiple inputs that can be of a totally different sizes.
+
+So the third rule of Big O precises that we have to diffrenciate those inputs in the Big O notation.
+
+Here the notation is: `O(n+m)`
+
 ### Rule 4: Drop Non Dominants
