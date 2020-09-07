@@ -72,11 +72,12 @@
 <li class="chapter" data-level="1" data-path="big-o-notation.html"><a href="big-o-notation.html"><i class="fa fa-check"></i><b>1</b> Big O Notation</a><ul>
 <li class="chapter" data-level="1.1" data-path="big-o-notation.html"><a href="big-o-notation.html#on---linear-time"><i class="fa fa-check"></i><b>1.1</b> O(n) - Linear Time</a></li>
 <li class="chapter" data-level="1.2" data-path="big-o-notation.html"><a href="big-o-notation.html#o1---constant-time"><i class="fa fa-check"></i><b>1.2</b> O(1) - Constant Time</a></li>
-<li class="chapter" data-level="1.3" data-path="big-o-notation.html"><a href="big-o-notation.html#big-o-simplification"><i class="fa fa-check"></i><b>1.3</b> Big O Simplification</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-1-worst-case"><i class="fa fa-check"></i><b>1.3.1</b> Rule 1: Worst Case</a></li>
-<li class="chapter" data-level="1.3.2" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-2-remove-constants"><i class="fa fa-check"></i><b>1.3.2</b> Rule 2: Remove Constants</a></li>
-<li class="chapter" data-level="1.3.3" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-3-different-terms-for-inputs"><i class="fa fa-check"></i><b>1.3.3</b> Rule 3: Different Terms For Inputs</a></li>
-<li class="chapter" data-level="1.3.4" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-4-drop-non-dominants"><i class="fa fa-check"></i><b>1.3.4</b> Rule 4: Drop Non Dominants</a></li>
+<li class="chapter" data-level="1.3" data-path="big-o-notation.html"><a href="big-o-notation.html#on2---quadratic-time"><i class="fa fa-check"></i><b>1.3</b> O(n^2) - Quadratic Time</a></li>
+<li class="chapter" data-level="1.4" data-path="big-o-notation.html"><a href="big-o-notation.html#big-o-simplification"><i class="fa fa-check"></i><b>1.4</b> Big O Simplification</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-1-worst-case"><i class="fa fa-check"></i><b>1.4.1</b> Rule 1: Worst Case</a></li>
+<li class="chapter" data-level="1.4.2" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-2-remove-constants"><i class="fa fa-check"></i><b>1.4.2</b> Rule 2: Remove Constants</a></li>
+<li class="chapter" data-level="1.4.3" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-3-different-terms-for-inputs"><i class="fa fa-check"></i><b>1.4.3</b> Rule 3: Different Terms For Inputs</a></li>
+<li class="chapter" data-level="1.4.4" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-4-drop-non-dominants"><i class="fa fa-check"></i><b>1.4.4</b> Rule 4: Drop Non Dominants</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>2</b> Data Structures</a></li>
@@ -131,7 +132,7 @@ function loopArray(array) {
 loopArray(bigArray);</code></pre>
 <div class="caption">
 <p>
-Try it out on <a href="https://repl.it/@RilDev/On-Linear-Time#index.js" target="_blank">repl.it</a>!
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Notation-On-Linear-Time" target="_blank">repl.it</a>!
 </p>
 </div>
 </div>
@@ -149,7 +150,7 @@ function firstElement(array) {
 firstElement(bigArray);</code></pre>
 <div class="caption">
 <p>
-Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time#index.js" target="_blan">repl.it</a>!
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Notation-O1-Constant-Time" target="_blan">repl.it</a>!
 </p>
 </div>
 <p><strong>Note:</strong></p>
@@ -171,8 +172,34 @@ Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" targ
 </p>
 </div>
 </div>
+<div id="on2---quadratic-time" class="section level2">
+<h2><span class="header-section-number">1.3</span> O(n^2) - Quadratic Time</h2>
+<p>One common interview question that you might get is “Log all pairs of an array”.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const array = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;];
+
+function logAllPairsOfArray(input) {
+  for (let i = 0; i &lt; input.length; i++) { //O(n)
+    for (let j = 1; j &lt; input.length; j++) { //O(n)
+      console.log(input[i], input[j]);
+    }
+  }
+}
+
+logAllPairsOfArray(array);
+
+//gives: O(n*n) = O(n^2)</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Notation-On2-Quadratic-Time" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply <code>n</code> by itself: <code>O(n*n)</code> = <code>O(n^2)</code> (O of n square).</p>
+<p>This is a very ineffective Big O. You should avoid it when possible.</p>
+<p>Many interview question start with a <code>quadratic time</code> function and ask you to make it faster.</p>
+</div>
 <div id="big-o-simplification" class="section level2">
-<h2><span class="header-section-number">1.3</span> Big O Simplification</h2>
+<h2><span class="header-section-number">1.4</span> Big O Simplification</h2>
 <p>Usually, when calculating the Big O of a function. We don’t go through the whole function adding every variable assignment, loops and so on, we give the general trend of the function when called with a big input.</p>
 <p><strong>Example:</strong></p>
 <pre><code>function complexBigONotation(input) {
@@ -196,7 +223,7 @@ Try it out on <a href="https://repl.it/@RilDev/O1-Constant-Time-2#index.js" targ
 <p>This example function is actually an <code>O(n)</code> function.</p>
 <p>Here is how we simplify a Big O notation.</p>
 <div id="rule-1-worst-case" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Rule 1: Worst Case</h3>
+<h3><span class="header-section-number">1.4.1</span> Rule 1: Worst Case</h3>
 <p>When calculating Big O, we always asume that we are running the function in a worst case scenario. So if we have to loop through an input to look for a value we asume that we always have to loop through all the intems in the input.</p>
 <p><strong>Example:</strong></p>
 <pre><code>const bigArray = new Array(100).fill(0);
@@ -218,7 +245,7 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Worst-Case#i
 <p>Functions with loops looping over the input <code>for (let i = 0; i &lt; input.length)</code> will always be at least <code>O(n)</code>.</p>
 </div>
 <div id="rule-2-remove-constants" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Rule 2: Remove Constants</h3>
+<h3><span class="header-section-number">1.4.2</span> Rule 2: Remove Constants</h3>
 <p>When calculating the Big O notation of a function, we remove all the elements that would become unsignificant when feeding huge inputs to our function.</p>
 <p><strong>Example:</strong></p>
 <pre><code>const bigArray = new Array(100).fill(0);
@@ -261,18 +288,18 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Remove-Const
 <p>Remember, Big O is about knowing the trend of a function when processing a lot of data. Therefore, if there are fixed operations that are always done by the function not matter the size of the input, we don’t include them in our calculation. The same way, if there are multiple calculations that are of the same type (like here, <code>linear time</code>) we reduce it the one of the Big O notations on the chart (so <code>O(3n)</code> becomes <code>O(n)</code>).</p>
 </div>
 <div id="rule-3-different-terms-for-inputs" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Rule 3: Different Terms For Inputs</h3>
+<h3><span class="header-section-number">1.4.3</span> Rule 3: Different Terms For Inputs</h3>
 <p>When there are multiple inputs, you have to indicate it in the Big O notation.</p>
 <p><strong>Example:</strong></p>
 <pre><code>const bigArray1 = Array(100).fill(0);
 const bigArray2 = Array(1000).fill(1);
 
 function multipleInputs(array1, array2) {
-  for (let i = 0; i &lt; array1.length; i++) {
+  for (let i = 0; i &lt; array1.length; i++) { //O(n)
     console.count(array1[i]);
   }
   
-  for (let i = 0; i &lt; array2.length; i++) {
+  for (let i = 0; i &lt; array2.length; i++) { //O(m)
     console.count(array2[i]);
   }
 }
@@ -289,9 +316,32 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Different-Te
 <p>This function is <strong>NOT</strong> <code>O(n)</code> because there are multiple inputs that can be of a totally different sizes.</p>
 <p>So the third rule of Big O precises that we have to diffrenciate those inputs in the Big O notation.</p>
 <p>Here the notation is: <code>O(n+m)</code></p>
+<p>What about nested loops with different arrays? <em>Glad you asked.</em> In that case, the notation will be <code>O(n*m)</code>.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray1 = Array(10).fill(0);
+const bigArray2 = Array(5).fill(1);
+
+function multipleInputs(array1, array2) {
+  for (let i = 0; i &lt; array1.length; i++) { //O(n)
+    for (let j = 0; j &lt; array2.length; j++) { //(m)
+      console.count(bigArray1[i]);
+    }
+  }
+}
+
+multipleInputs(bigArray1, bigArray2);
+
+//gives: O(n*m)</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Different-Terms-For-Inputs-2" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>Here the notation is <code>O(n*m)</code> because at every element in the first loop, all the elements of the second loop will be iterated over.</p>
+<p>A good rule of thumb to differenciate <code>O(n+m)</code> and <code>O(n*m)</code> is: Every step that happens in the same indentation (one after another), you add <code>+</code>. And everything that happens with an indentation that is nested, you multiply <code>*</code>.</p>
 </div>
 <div id="rule-4-drop-non-dominants" class="section level3">
-<h3><span class="header-section-number">1.3.4</span> Rule 4: Drop Non Dominants</h3>
+<h3><span class="header-section-number">1.4.4</span> Rule 4: Drop Non Dominants</h3>
 
 </div>
 </div>
