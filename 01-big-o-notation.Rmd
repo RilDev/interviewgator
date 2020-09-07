@@ -39,7 +39,7 @@ loopArray(bigArray);
 ```
 
 ```{block, type="caption"}
-Try it out on [repl.it](https://repl.it/@RilDev/On-Linear-Time#index.js){target="_blank"}!
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On-Linear-Time){target="_blank"}!
 ```
 
 ## O(1) - Constant Time
@@ -61,7 +61,7 @@ firstElement(bigArray);
 ```
 
 ```{block, type="caption"}
-Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time#index.js){target="_blan"}!
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-O1-Constant-Time){target="_blan"}!
 ```
 
 __Note:__
@@ -86,6 +86,38 @@ firstTwoElements(bigArray);
 ```{block, type="caption"}
 Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){target="_blan"}!
 ```
+
+## O(n^2) - Quadratic Time
+
+One common interview question that you might get is "Log all pairs of an array".
+
+__Example:__
+
+```
+const array = ['a', 'b', 'c', 'd', 'e'];
+
+function logAllPairsOfArray(input) {
+  for (let i = 0; i < input.length; i++) { //O(n)
+    for (let j = 1; j < input.length; j++) { //O(n)
+      console.log(input[i], input[j]);
+    }
+  }
+}
+
+logAllPairsOfArray(array);
+
+//gives: O(n*n) = O(n^2)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On2-Quadratic-Time){target="_blank"}!
+```
+
+Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply `n` by itself: `O(n*n)` = `O(n^2)` (O of n square).
+
+This is a very ineffective Big O. You should avoid it when possible.
+
+Many interview question start with a `quadratic time` function and ask you to make it faster.
 
 ## Big O Simplification
 
@@ -204,11 +236,11 @@ const bigArray1 = Array(100).fill(0);
 const bigArray2 = Array(1000).fill(1);
 
 function multipleInputs(array1, array2) {
-  for (let i = 0; i < array1.length; i++) {
+  for (let i = 0; i < array1.length; i++) { //O(n)
     console.count(array1[i]);
   }
   
-  for (let i = 0; i < array2.length; i++) {
+  for (let i = 0; i < array2.length; i++) { //O(m)
     console.count(array2[i]);
   }
 }
@@ -228,5 +260,34 @@ This function is __NOT__ `O(n)` because there are multiple inputs that can be of
 So the third rule of Big O precises that we have to diffrenciate those inputs in the Big O notation.
 
 Here the notation is: `O(n+m)`
+
+What about nested loops with different arrays? _Glad you asked._ In that case, the notation will be `O(n*m)`.
+
+__Example:__
+
+```
+const bigArray1 = Array(10).fill(0);
+const bigArray2 = Array(5).fill(1);
+
+function multipleInputs(array1, array2) {
+  for (let i = 0; i < array1.length; i++) { //O(n)
+    for (let j = 0; j < array2.length; j++) { //(m)
+      console.count(bigArray1[i]);
+    }
+  }
+}
+
+multipleInputs(bigArray1, bigArray2);
+
+//gives: O(n*m)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Simplification-Different-Terms-For-Inputs-2){target="_blank"}!
+```
+
+Here the notation is `O(n*m)` because at every element in the first loop, all the elements of the second loop will be iterated over.
+
+A good rule of thumb to differenciate `O(n+m)` and `O(n*m)` is: Every step that happens in the same indentation (one after another), you add `+`. And everything that happens with an indentation that is nested, you multiply `*`.
 
 ### Rule 4: Drop Non Dominants
