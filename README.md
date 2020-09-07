@@ -10,6 +10,10 @@ Acknowledgement: This book is based of Andrei Neagoie's [Master the Coding Inter
 
 ## Development
 
+This project is built using [BookDown](https://bookdown.org/), which means you need to have [R](https://www.r-project.org/) and it's dependencies installed on you system in order to run the project.
+
+An easy way to set all that up is to download and install [RStudio](https://rstudio.com/products/rstudio/download/#download).
+
 There are three scripts running with `npm`:
 
 `npm start`: open the project in the browser
