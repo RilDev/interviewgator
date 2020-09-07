@@ -12,6 +12,16 @@ output:
 
 _Review and practice common data structures to prepare for your... interviewgation!_
 
+## Acknowledgement
+
 In this book based on Andrei Neagoie's [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/){target="_blank"} you will be able to learn/review common data structures, algorithms and interview techniques.
 
 PS: if you are looking for a job, you should totally checkout [Andrei's courses](https://www.udemy.com/user/andrei-neagoie/){target="_blank"}!
+
+## Print
+
+Coming soon...
+
+## Repository
+
+The code for this project is available at [https://github.com/RilDev/interviewgator](https://github.com/RilDev/interviewgator){target="_blank"}
