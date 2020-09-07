@@ -72,6 +72,7 @@ Don't forget to run `npm i` in the project directory to install all the dependen
 
 ### Finally
 
+- [ ] run a spelling check on the whole project
 - [ ] [ Format ](https://bookdown.org/yihui/bookdown/output-formats.html) the book in PDF/E-Book (without the Playground section)
 - [ ] [ Publish ](https://bookdown.org/yihui/bookdown/publishing.html) the book on [https://bookdown.org/](https://bookdown.org/) and GitHub Pages
 - [ ] Share the result on ZtM's Discord chat
