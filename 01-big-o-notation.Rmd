@@ -10,7 +10,7 @@ But how can we mesure code efficiency?
 
 Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
 
-![_Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}_](./assets/big-o-complexity-chart.jpeg) 
+![Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}](./assets/big-o-complexity-chart.jpeg) 
 
 As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
 
@@ -38,7 +38,9 @@ function loopArray(array) {
 loopArray(bigArray);
 ```
 
+```{block, type="caption"}
 Try it out on [repl.it](https://repl.it/@RilDev/On-Linear-Time#index.js){target="_blank"}!
+```
 
 ## O(1) - Constant Time
 
@@ -58,7 +60,9 @@ function firstElement(array) {
 firstElement(bigArray);
 ```
 
+```{block, type="caption"}
 Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time#index.js){target="_blan"}!
+```
 
 __Note:__
 
@@ -79,7 +83,9 @@ function firstTwoElements(array) {
 firstTwoElements(bigArray);
 ```
 
+```{block, type="caption"}
 Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){target="_blan"}!
+```
 
 ## Big O Simplification
 
@@ -114,7 +120,78 @@ Here is how we simplify a Big O notation.
 
 ### Rule 1: Worst Case
 
+When calculating Big O, we always asume that we are running the function in a worst case scenario. So if we have to loop through an input to look for a value we asume that we always have to loop through all the intems in the input.
+
+__Example:__
+
+```
+const bigArray = new Array(100).fill(0);
+bigArray.push(1);
+
+function loopArray(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.count(array[i]);
+    if (array[i] === 1) break;
+  }
+}
+
+loopArray(bigArray);
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Simplification-Worst-Case#index.js){target="_blank"}!
+```
+
+Functions with loops looping over the input `for (let i = 0; i < input.length)` will always be at least `O(n)`.
+
 ### Rule 2: Remove Constants
+
+When calculating the Big O notation of a function, we remove all the elements that would become unsignificant when feeding huge inputs to our function.
+
+__Example:__
+
+```
+const bigArray = new Array(100).fill(0);
+
+function complexFunction(array) {
+  console.log(array[0]); //O(1)
+
+  for (let i = 0; i < 10; i++) { //O(10)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i < Math.floor(array.length / 2); i++) { //O(n/2)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i < array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i < array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+}
+
+complexFunction(bigArray);
+
+
+//gives: O(1 + 10 + n/2 + n + n) = O(2n + n/2 + 11) = O(2n + n/2) = O(2n + n) = O(3n) = O(n)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Simplification-Remove-Constants#index.js){target="_blank"}!
+```
+
+The function in the previous block gives us `O(2n + n/2 + 11)`.
+
+- If we had an input of `10000` elements, the constant of `11` would be negligeable. So we remove it: `O(2n + n/2)`
+
+- If we had an input of `10000000` elements, dividing by two has a decreasingly important effect. So we remove it: `O(2n + n)` = `O(3n)`
+
+- And finally, because `O(n)` and `O(3n)` are both linear time Big O's (the number of calculations increase linearly as the size of the input increases), we drop the multiplier: `O(n)`
+
+Remember, Big O is about knowing the trend of a function when processing a lot of data. Therefore, if there are fixed operations that are always done by the function not matter the size of the input, we don't include them in our calculation. The same way, if there are multiple calculations that are of the same type (like here, `linear time`) we reduce it the one of the Big O notations on the chart (so `O(3n)` becomes `O(n)`).
 
 ### Rule 3: Different Terms For Inputs
 
