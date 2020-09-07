@@ -22,6 +22,8 @@ There are three scripts running with `npm`:
 
 `npm deploy`: update live book at [https://rildev.github.io/interviewgator/](https://rildev.github.io/interviewgator/)
 
+Don't forget to run `npm i` in the project directory to install all the dependencies needed to run the npm commandes.
+
 ## Todo
 
 ### Big O notation
