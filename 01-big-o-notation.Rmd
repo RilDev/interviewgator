@@ -10,7 +10,7 @@ But how can we mesure code efficiency?
 
 Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
 
-![_Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/)_](./assets/big-o-complexity-chart.jpeg) 
+![_Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}_](./assets/big-o-complexity-chart.jpeg) 
 
 As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
 
