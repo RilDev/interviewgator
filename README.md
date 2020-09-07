@@ -90,3 +90,6 @@ or simply in the CLI:
 Rscript -e "bookdown::render_book('index.Rmd', 'all')"
 ```
 
+## License
+
+Public domain.
