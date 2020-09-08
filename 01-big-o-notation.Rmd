@@ -333,3 +333,9 @@ Even with a relatively small input, like here with 200 elements, we quickly real
 - the `O(n^2)` will perform 40 000 operations!
 
 We can then simply remove the `O(100)` and `O(n)` since there impact on performance will be negligeable compared to the `O(n^2)` time complexity.
+
+## Cheat Sheet
+
+Andrei did a cheat sheet to remember all these things at a glance.
+
+You can [download it here](./assets/bigo-cheat-sheet.pdf){target="_blank"}!
