@@ -1,6 +1,13 @@
 # Resources
 
+## Mentioned in this book
+
 - [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/){target="_blank"}: The online course this book is based upon
 - [https://github.com/RilDev/interviewgator](https://github.com/RilDev/interviewgator){target="_blank"}: The repository where this book is stored
 - [repl.it](https://repl.it/){target="_blank"}: online coding environment
 - [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}: Big O notation graph and common data structures operations
+
+## Practice
+
+- [Codility](https://www.codility.com/){target="_blank"}: A platform used by many tech companies like [TopTal](https://www.toptal.com/){target="_blank"} to test people applying to them
+- [Hackerrank](https://www.hackerrank.com/){target="_blank"}: Another platform that companies use to test developers
