@@ -2,7 +2,7 @@
 
 What is good code? Good code is a code that is __readable__ and __scalable__.
 
-Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.
+The Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.
 
 It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down. So it is very important to optimize the code to make sure it runs as fast as possible.
 
@@ -14,11 +14,11 @@ Here is what code efficiency looks like on a Big O chart (Elements is the amount
 
 As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
 
-When calculating a Big O notation, we always give the worst possible performance for the script and simplify the notation by removing constants, different terms for input and droping the non dominant. For more information please head to the [Big O Simplification] section.
+When calculating a Big O notation, we always give the worst possible performance for the script and simplify it's notation. For more information please head to the [Big O Simplification] section.
 
 ## O(n) - Linear Time
 
-This is probably the most common Big O notation. It simply means that when you have an input of `n` the script will perform `n` operations on it.
+This is probably the most common Big O notation. It simply means that when you have an input of `n` the function will perform `n` operations on it.
 
 As the number of input increases, the number of operations increases in a linear fashion.
 
@@ -89,6 +89,10 @@ Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){tar
 
 ## O(n^2) - Quadratic Time
 
+This is a very ineffective Big O. You should avoid it when possible.
+
+Many interview question start with a `quadratic time` function and ask you to make it faster.
+
 One common interview question that you might get is "Log all pairs of an array".
 
 __Example:__
@@ -113,11 +117,7 @@ logAllPairsOfArray(array);
 Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On2-Quadratic-Time){target="_blank"}!
 ```
 
-Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply `n` by itself: `O(n*n)` = `O(n^2)` (O of n square).
-
-This is a very ineffective Big O. You should avoid it when possible.
-
-Many interview question start with a `quadratic time` function and ask you to make it faster.
+Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply `n` by itself: `O(n*n)` = `O(n^2)` _(pronounced: O of n square)_.
 
 ## Big O Simplification
 
