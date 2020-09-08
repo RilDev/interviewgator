@@ -291,3 +291,45 @@ Here the notation is `O(n*m)` because at every element in the first loop, all th
 A good rule of thumb to differenciate `O(n+m)` and `O(n*m)` is: Every step that happens in the same indentation (one after another), you add `+`. And everything that happens with an indentation that is nested, you multiply `*`.
 
 ### Rule 4: Drop Non Dominants
+
+Since Big O notation is concerned with big inputs, we drop everything that would be insignificant when passing a lot of data to the function.
+
+__Example:__
+
+```
+const bigArray = Array(200).fill(0);
+
+function complexBigO(array) {
+  for (let i = 0; i < 100; i++) { //O(100)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i < array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i < array.length; i++) { //O(n)
+    for (let j = 0; j < array.length; j++) { //O(n)
+      console.count(array[i] + array[j]);
+    }
+  }
+}
+
+complexBigO(bigArray);
+
+//gives: O(100 + n + n * n) = O(100 + n + n^2) = O(n + n^2) = O(n^2)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Simplification-Drop-Non-Dominants#index.js){target="_blank"}!
+```
+
+The function above has a Big O complexity of `O(100 + n + n^2)`.
+
+Even with a relatively small input, like here with 200 elements, we quickly realize that the `O(n^2)` trumps all other complexities present:
+
+- the `O(100)` will perform 100 operations
+- the `O(n)` will perform 200 operations
+- the `O(n^2)` will perform 40 000 operations!
+
+We can then simply remove the `O(100)` and `O(n)` since there impact on performance will be negligeable compared to the `O(n^2)` time complexity.
