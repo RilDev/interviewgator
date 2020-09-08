@@ -345,6 +345,42 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Different-Te
 </div>
 <div id="rule-4-drop-non-dominants" class="section level3">
 <h3><span class="header-section-number">1.4.4</span> Rule 4: Drop Non Dominants</h3>
+<p>Since Big O notation is concerned with big inputs, we drop everything that would be insignificant when passing a lot of data to the function.</p>
+<p><strong>Example:</strong></p>
+<pre><code>const bigArray = Array(200).fill(0);
+
+function complexBigO(array) {
+  for (let i = 0; i &lt; 100; i++) { //O(100)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i &lt; array.length; i++) { //O(n)
+    console.count(array[i]);
+  }
+
+  for (let i = 0; i &lt; array.length; i++) { //O(n)
+    for (let j = 0; j &lt; array.length; j++) { //O(n)
+      console.count(array[i] + array[j]);
+    }
+  }
+}
+
+complexBigO(bigArray);
+
+//gives: O(100 + n + n * n) = O(100 + n + n^2) = O(n + n^2) = O(n^2)</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Big-O-Simplification-Drop-Non-Dominants#index.js" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>The function above has a Big O complexity of <code>O(100 + n + n^2)</code>.</p>
+<p>Even with a relatively small input, like here with 200 elements, we quickly realize that the <code>O(n^2)</code> trumps all other complexities present:</p>
+<ul>
+<li>the <code>O(100)</code> will perform 100 operations</li>
+<li>the <code>O(n)</code> will perform 200 operations</li>
+<li>the <code>O(n^2)</code> will perform 40 000 operations!</li>
+</ul>
+<p>We can then simply remove the <code>O(100)</code> and <code>O(n)</code> since there impact on performance will be negligeable compared to the <code>O(n^2)</code> time complexity.</p>
 
 </div>
 </div>
