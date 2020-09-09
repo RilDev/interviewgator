@@ -4,6 +4,8 @@ What is good code? Good code is a code that is __readable__ and __scalable__.
 
 The Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.
 
+The goal here is to plan long term. Even if you think your newest project will only have a hundred users, it is wise to plan for it to grow from the get go. Like it you won't have to constantly tinker old code when your user base grows.
+
 It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down. So it is very important to optimize the code to make sure it runs as fast as possible.
 
 But how can we mesure code efficiency?
