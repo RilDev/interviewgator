@@ -18,6 +18,8 @@ It is especially important in big tech companies because they manage a lot of da
 
 But how can we mesure code efficiency?
 
+## Time Complexity
+
 Here is what time complexity looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
 
 ![Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}](./assets/big-o-complexity-chart.jpeg) 
@@ -25,8 +27,6 @@ Here is what time complexity looks like on a Big O chart (Elements is the amount
 As we can see, the `O(1)` and `O(log n)` are the most performant functions and the `O(n!)`and `O(2^n)` are the least perfomant functions.
 
 When calculating a Big O notation, we always give the worst possible performance for the function and simplify it's notation. For more information please head to the [Big O Simplification] section.
-
-## Time Complexity
 
 ### O(n) - Linear Time
 
