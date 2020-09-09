@@ -2,15 +2,23 @@
 
 What is good code? Good code is a code that is __readable__ and __scalable__.
 
+Readable means that the code is clean and easy to understand by yourself and other programers.
+
+Scalable means that is it fast to execute and consumes as little memory as possible. The speed of execution is call __Time Complexity__ and the memory consumption is called __Space Complexity__. Most programming solutions are usually a trade off between the two complexities: You want fast code? You may have to use more memory. You whant memory efficient code? You may have to give up some speed.
+
+These three things (readability, speed and memory) are what is called: the __three pillars of code__.
+
+`Readability + Speed + Memory`
+
 The Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.
 
 The goal here is to plan long term. Even if you think your newest project will only have a hundred users, it is wise to plan for it to grow from the get go. Like it you won't have to constantly tinker old code when your user base grows.
 
-It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down. So it is very important to optimize the code to make sure it runs as fast as possible.
+It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down and the memory usage increases. So it is very important to optimize the code to make sure it runs as fast & light as possible.
 
 But how can we mesure code efficiency?
 
-Here is what code efficiency looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
+Here is what time complexity looks like on a Big O chart (Elements is the amount of data past to the function and Operations represent the efficiency of the function):
 
 ![Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}](./assets/big-o-complexity-chart.jpeg) 
 
@@ -18,7 +26,9 @@ As we can see, the `O(1)` and `O(log n)` are the most performant functions and t
 
 When calculating a Big O notation, we always give the worst possible performance for the function and simplify it's notation. For more information please head to the [Big O Simplification] section.
 
-## O(n) - Linear Time
+## Time Complexity
+
+### O(n) - Linear Time
 
 This is probably the most common Big O notation. It simply means that when you have an input of `n` the function will perform `n` operations on it.
 
@@ -44,7 +54,7 @@ loopArray(bigArray);
 Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On-Linear-Time){target="_blank"}!
 ```
 
-## O(1) - Constant Time
+### O(1) - Constant Time
 
 Another very common Big O notation. It is the most efficient Big O there is! No matter the size of the input, the function will always perform only one operation.
 
@@ -89,7 +99,7 @@ firstTwoElements(bigArray);
 Try it out on [repl.it](https://repl.it/@RilDev/O1-Constant-Time-2#index.js){target="_blan"}!
 ```
 
-## O(n^2) - Quadratic Time
+### O(n^2) - Quadratic Time
 
 This is a very ineffective Big O. You should avoid it when possible.
 
@@ -122,6 +132,62 @@ Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On2-Quadratic-Tim
 Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply `n` by itself: `O(n*n)` = `O(n^2)` _(pronounced: O of n square)_.
 
 __Note:__ If we had another loop within the two first loops, the Big O notation would have been `O(n*n*n)` = `O(n^3)`. But this is probably not something you would ever do!
+
+### O(n!) - Factorial Time
+
+The worst possible Big O complexity there is. If you are writing one yourself, you are definitively doing something wrong.
+
+__Example:__
+
+```
+const input = 5;
+
+function factorial(input) {
+  for (let i = 0; i < input; i++) {
+    factorial(input - 1);
+  }
+
+  console.count(input);
+}
+
+factorial(input);
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On-Factorial-Time#index.js){target="_blank"}!
+```
+
+This function is adding a nested loop for every input that we have. Never a good idea!
+
+## Space Complexity
+
+### O(1) - Constant Space
+
+When we talk about space complexity, we only count additional space used by the function, because it is what we have control over. So we don't include the input.
+
+__Example:__
+
+```
+let input = 10; //the input does not count in the space complexity
+
+function constantSpace(input) {
+  for (let i = 0; i < input; i++) { //O(1)
+    console.log(i);
+  }
+}
+
+constantSpace(input);
+
+//gives: O(1)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-O1-Constant-Space#index.js){target="_blank"}!
+```
+
+In this function, we only create the `let i = 0` variable, so this function is of space complexity of `O(1)`.
+
+### O(n) - Linear Space
 
 ## Big O Simplification
 
