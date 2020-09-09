@@ -1,3 +1,13 @@
 # Data Structures
 
-_Coming Soon..._
+In computer programming, data structures are the different ways available to the programmer to store data.
+
+Some are very common, others less so. They all have specific strengths and weaknesses when it comes to access data, insert data, delete data, search the data structure...
+
+We are going to explore the ones you are going to meet the most often during your developer journey.
+
+Remember, at the end of the day, programs are simply data structures and algorithms.
+
+`Data Structures + Algorithms = Program`
+
+And great programmers know how to pick the right data structure with the right algorithms to write good programs. Programs that are readable and scalable.
