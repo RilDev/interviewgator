@@ -12,9 +12,9 @@ Here is what code efficiency looks like on a Big O chart (Elements is the amount
 
 ![Big O Complexity Chart from [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}](./assets/big-o-complexity-chart.jpeg) 
 
-As we can see, the `O(1)` and `O(log n)` are the most performant scripts and the `O(n!)`and `O(2^n)` are the least perfomant scripts.
+As we can see, the `O(1)` and `O(log n)` are the most performant functions and the `O(n!)`and `O(2^n)` are the least perfomant functions.
 
-When calculating a Big O notation, we always give the worst possible performance for the script and simplify it's notation. For more information please head to the [Big O Simplification] section.
+When calculating a Big O notation, we always give the worst possible performance for the function and simplify it's notation. For more information please head to the [Big O Simplification] section.
 
 ## O(n) - Linear Time
 
@@ -118,6 +118,8 @@ Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-On2-Quadratic-Tim
 ```
 
 Everytime an element is looped in the first for loop, the entire array is looped in the second for loop. So we multiply `n` by itself: `O(n*n)` = `O(n^2)` _(pronounced: O of n square)_.
+
+__Note:__ If we had another loop within the two first loops, the Big O notation would have been `O(n*n*n)` = `O(n^3)`. But this is probably not something you would ever do!
 
 ## Big O Simplification
 
