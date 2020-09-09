@@ -161,6 +161,8 @@ This function is adding a nested loop for every input that we have. Never a good
 
 ## Space Complexity
 
+Space complexity indicates how much memory the function will consume. Even thow computers now have a lot of RAM (Random Access Memory), it is not infinite!
+
 ### O(1) - Constant Space
 
 When we talk about space complexity, we only count additional space used by the function, because it is what we have control over. So we don't include the input.
@@ -188,6 +190,35 @@ Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-O1-Constant-Space
 In this function, we only create the `let i = 0` variable, so this function is of space complexity of `O(1)`.
 
 ### O(n) - Linear Space
+
+Now let's say we want to populate an array in our function and return it, this gives us a time complexity of `O(n)`.
+
+__Example:__
+
+```
+const input = 10; //we do not count the inputs
+
+function linearSpace(input) {
+  const array = []; //O(1)
+
+  for (let i = 0; i < input; i++) { //O(1)
+    array[i] = i; //O(n), because we create new memory space at every loop
+  }
+
+  return array;
+}
+
+linearSpace(input);
+
+//gives: O(1 + 1 + n) = O(n)
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Big-O-Notation-O1-Linear-Space){target="_blank"}!
+```
+
+Here we create two variables `array` and `i`. Then loop `n` times. At every iteration, we allocate a new memory space to our `array`. Which gives us a space complexity of `O(1 + 1 + n)` = `O(n)`. 
+
 
 ## Big O Simplification
 
