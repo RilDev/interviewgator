@@ -441,3 +441,15 @@ We can then simply remove the `O(100)` and `O(n)` since there impact on performa
 Andrei did a cheat sheet to remember all these things at a glance.
 
 You can [download it here](./assets/bigo-cheat-sheet.pdf){target="_blank"}!
+
+## Summary
+
+So good code is code that is __readable__ and __scalable__.
+
+Big O is a very important concept that you wont encounter on your day to day job but that you always have to keep in the back of your mind because computer resources are expenssive for the company your are going to be working for. Good developers and engineer always have this knowledge. That is why it is such a popular topic during interviews.
+
+Remember, it's all about trade-offs. Maybe readability will matter more than scalability in some cases. Or maybe time complexity will be less important than space complexity.
+
+Do not optimize your code prematurly. Optimizing for time or space could negatively impact readability which would be less that ideal in a start-up environment for instance.
+
+A great engineer knows how to strike the right balance between run time, space and redability. If for instance the data past to a function is always small, a linear time algorithm might be better that a constant time algorithm.
