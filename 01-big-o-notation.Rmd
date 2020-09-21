@@ -14,7 +14,7 @@ The Big O Notation gives an idea of the scalability of our code. In other words,
 
 The goal here is to plan long term. Even if you think your newest project will only have a hundred users, it is wise to plan for it to grow from the get go. Like it you won't have to constantly tinker old code when your user base grows.
 
-It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down and the memory usage increases. So it is very important to optimize the code to make sure it runs as fast & light as possible.
+It is especially important in big tech companies because they manage a lot of data, and as the data increases, the execution speed of the code slows down and the memory usage increases. So it is very important to optimize the code to make sure it runs as fast & light as possible.
 
 But how can we mesure code efficiency?
 
@@ -80,7 +80,8 @@ __Note:__
 
 If there are multiple operations in the O(1) function, we still write it O(1).
 
-Because no matter how big the input is, the number of operation stills the same, the execution time is still constant.
+Because no matter how big the input is, the number of operation stills the same, the execution time is still constant. For more information please head to the [Big O Simplification] section.
+
 
 ```
 const bigArray = new Array(100).fill(0);
@@ -173,7 +174,7 @@ __Example:__
 let input = 10; //the input does not count in the space complexity
 
 function constantSpace(input) {
-  for (let i = 0; i < input; i++) { //O(1)
+  for (let i = 0; i < input; i++) { //let i = 0 => O(1)
     console.log(i);
   }
 }
@@ -253,7 +254,7 @@ Here is how we simplify a Big O notation.
 
 ### Rule 1: Worst Case
 
-When calculating Big O, we always asume that we are running the function in a worst case scenario. So if we have to loop through an input to look for a value we asume that we always have to loop through all the intems in the input.
+When calculating Big O, we always asume that we are running the function in a worst case scenario. So if we have to loop through an input to look for a value we asume that we always have to loop through all the items in the input.
 
 __Example:__
 
