@@ -122,7 +122,7 @@
 <p><code>Readability + Speed + Memory</code></p>
 <p>The Big O Notation gives an idea of the scalability of our code. In other words, how efficient our code is.</p>
 <p>The goal here is to plan long term. Even if you think your newest project will only have a hundred users, it is wise to plan for it to grow from the get go. Like it you won’t have to constantly tinker old code when your user base grows.</p>
-<p>It is especially important in big tech companies because they manage a lot of data, and as the data increase, the execution speed of the code slows down and the memory usage increases. So it is very important to optimize the code to make sure it runs as fast &amp; light as possible.</p>
+<p>It is especially important in big tech companies because they manage a lot of data, and as the data increases, the execution speed of the code slows down and the memory usage increases. So it is very important to optimize the code to make sure it runs as fast &amp; light as possible.</p>
 <p>But how can we mesure code efficiency?</p>
 <div id="time-complexity" class="section level2">
 <h2><span class="header-section-number">1.1</span> Time Complexity</h2>
@@ -173,7 +173,7 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Notation-O1-Constant-Time" 
 </div>
 <p><strong>Note:</strong></p>
 <p>If there are multiple operations in the O(1) function, we still write it O(1).</p>
-<p>Because no matter how big the input is, the number of operation stills the same, the execution time is still constant.</p>
+<p>Because no matter how big the input is, the number of operation stills the same, the execution time is still constant. For more information please head to the <a href="big-o-notation.html#big-o-simplification">Big O Simplification</a> section.</p>
 <pre><code>const bigArray = new Array(100).fill(0);
 
 function firstTwoElements(array) {
@@ -242,6 +242,7 @@ Try it out on <a href="https://repl.it/@RilDev/Big-O-Notation-On-Factorial-Time#
 </div>
 <div id="space-complexity" class="section level2">
 <h2><span class="header-section-number">1.2</span> Space Complexity</h2>
+<p>Space complexity indicates how much memory the function will consume. Even thow computers now have a lot of RAM (Random Access Memory), it is not infinite!</p>
 <div id="o1---constant-space" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> O(1) - Constant Space</h3>
 <p>When we talk about space complexity, we only count additional space used by the function, because it is what we have control over. So we don’t include the input.</p>
