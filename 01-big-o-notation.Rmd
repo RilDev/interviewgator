@@ -450,6 +450,6 @@ Big O is a very important concept that you wont encounter on your day to day job
 
 Remember, it's all about trade-offs. Maybe readability will matter more than scalability in some cases. Or maybe time complexity will be less important than space complexity.
 
-Do not optimize your code prematurly. Optimizing for time or space could negatively impact readability which would be less that ideal in a start-up environment for instance.
+Do not optimize your code prematurly. Optimizing for time or space could negatively impact readability which would be less than ideal in a start-up environment for instance.
 
-A great engineer knows how to strike the right balance between run time, space and redability. If for instance the data past to a function is always small, a linear time algorithm might be better that a constant time algorithm.
+A great engineer knows how to strike the right balance between run time, space and redability. If for instance the data past to a function is always small, a linear time algorithm might be better than a constant time algorithm.
