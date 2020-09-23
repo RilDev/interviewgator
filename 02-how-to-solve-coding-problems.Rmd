@@ -1,0 +1,41 @@
+# How To Solve Coding Problems
+
+The big question interviewers are trying to answer is: "Are you gonna solve their problems?". Because if you are able to solve their problems, then you will bring in more money than you cost them.
+
+It's not the smartest interviewee that will get hired most of the time but the one that can answer this question: "Will you solve our problems?". If you are a genius but don't work well with others, or you write ugly code that no one understands, or you can't communicate a solution to a problem... then you wont get a job. You see it's not necesarely about the solution to a problem in the coding interview, it's about the thought process and knowing the trade-offs between data-structure and algorithms: space and time complexity. Just like in real life coding, you don't memorize things, you just have to deeply understand it.
+
+In this section we are going to see what is the ideal process to ace the interview, so that once we have this fundation we can use data-structure and algorithms to solve these problems. Because an interview is not about memorizing data-structures and algorithms, but knowing them! The interviewer will be able to make the difference right away.
+
+## What Are Companies Looking For?
+
+Most people get hang up on the idea of learning every algorithms out there, data-structures, doing a thousand coding problems to practice before an interview. And these are important but in most companies you wont have to know how to write a binary search stream or write sorting algorithms from scratch. That's the type of thing you will learn on the job. And let's be honest, no engineer has everything memorized, most of the time, when a problem presents itself, engineers will search the web. And companies know this. So they want people who know how to get the answers. They want to see if you know about data-structues and algorithms. They want to see if you know when to use one data-structure over the other, or why you should use an algorithm instead of another. Companies want smart people that can solve problems that they can't solve themselves. That's what they will be paying you for. __Why are we doing things this way? Is so important to understand!__ It is very hard to find people who can solve problems on their own without holding their hand!
+
+Here are the four main things recruters will be looking at to see if you are a good fit for their company.
+
+### Analytic Skills
+
+Analytic skills is "How can you think trough a problem and analyse things?". When you are coding for an interview they want to hear your thought process and go from not knowing the answer to solving the problem.
+
+### Coding Skills
+
+Do you code well? Is you code clean and well organized? Readable?
+
+### Technical Skills
+
+Do you know what you are doing? Do you know the pros and cons of the solution you are implementing or did you just memorize stuff?
+
+### Communication Skills
+
+You communication skill go from your personality (does your personality match the company's personality?) to how you communicate with your team. You probably wont work by yourself, but you will have to communicate with your team, managers, bosses and they want to know if you are going to be able to fit well.
+
+## Interview At Google
+
+Here is an example of an excellent interview at Google. You may not understand everything the first time around, but by the end of this book, it should become second nature to you! Again, you should definitly check [Andrei's course](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/){target="_blank"} to fast track your progess!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XKu_SEDAykw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Coding Interview Cheat Sheet
+
+Andrei did a cheat sheet to recap all the things you have to think about during a coding interview.
+
+You can [download it here](./assets/coding-interview-cheat-sheet.pdf){target="_blank"}!
