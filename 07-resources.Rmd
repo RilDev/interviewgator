@@ -11,3 +11,7 @@
 
 - [Codility](https://www.codility.com/){target="_blank"}: A platform used by many tech companies like [TopTal](https://www.toptal.com/){target="_blank"} to test people applying to them
 - [Hackerrank](https://www.hackerrank.com/){target="_blank"}: Another platform that companies use to test developers
+
+## Videos
+
+- [Interview At Google](https://youtu.be/XKu_SEDAykw){target="_blank"}: A example of how white board interviews play-out at Google.
