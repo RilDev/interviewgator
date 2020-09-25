@@ -6,6 +6,7 @@
 - [https://github.com/RilDev/interviewgator](https://github.com/RilDev/interviewgator){target="_blank"}: The repository where this book is stored
 - [repl.it](https://repl.it/){target="_blank"}: online coding environment
 - [bigocheatsheet.com](https://www.bigocheatsheet.com/){target="_blank"}: Big O notation graph and common data structures operations
+- [Codility's time complexity lesson](https://codility.com/media/train/1-TimeComplexity.pdf){target="_blank"}: a well put together lesson about Big O's time complexity
 
 ## Practice
 
