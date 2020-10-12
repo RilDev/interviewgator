@@ -2,7 +2,7 @@
 
 The big question interviewers are trying to answer is: "Are you gonna solve their problems?". Because if you are able to solve their problems, then you will bring in more money than you cost them.
 
-It's not the smartest interviewee that will get hired most of the time but the one that can answer this question: "Will you solve our problems?". If you are a genius but don't work well with others, or you write ugly code that no one understands, or you can't communicate a solution to a problem... then you wont get a job. You see it's not necesarely about the solution to a problem in the coding interview, it's about the thought process and knowing the trade-offs between data-structure and algorithms: space and time complexity. Just like in real life coding, you don't memorize things, you just have to deeply understand it.
+It's not the smartest interviewee that will get hired most of the time but the one that can answer this question: "Will you solve our problems?". If you are a genius but don't work well with others, or you write ugly code that no one understands, or you can't communicate a solution to a problem... then you wont get a job. You see, it's not necesarely about the solution to a problem in the coding interview, it's about the thought process and knowing the trade-offs between data-structure and algorithms: space and time complexity. Just like in real life coding, you don't memorize things, you just have to deeply understand it.
 
 In this section we are going to see what is the ideal process to ace the interview, so that once we have this fundation we can use data-structure and algorithms to solve these problems. Because an interview is not about memorizing data-structures and algorithms, but knowing them! The interviewer will be able to make the difference right away.
 
@@ -39,3 +39,7 @@ Here is an example of an excellent interview at Google. You may not understand e
 Andrei did a cheat sheet to recap all the things you have to think about during a coding interview.
 
 You can [download it here](./assets/coding-interview-cheat-sheet.pdf){target="_blank"}!
+
+## Summary - How To Solve Coding Problems
+
+A common misconception is that you either are a good problem solver or you arn't. But as with anything it's a muscle that you can train. So with enough practice and knowing the tips and tricks that we covered in this section, you can solve problems a lot better and show the interviewer that you know what you are talking about. The key in this section was the cheatsheet and the step by step walk through of a problem. We saw how a good Google interview would go. Think out loud and try to comment these steps as you go along. __Communicating thoughout the process as much as possible and not trying to solve a problem fast is the key to interviewing and solving problems in an interview.__ You should not memorize problems. Because if you do a hundred problems it won't help you long term. And you will be taking a gamble: hoping that the interviewer will ask you a question that you've seen before. If you practice the this in this course, you will be ready for anything.
