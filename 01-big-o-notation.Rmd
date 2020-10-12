@@ -444,7 +444,7 @@ You can [download it here](./assets/bigo-cheat-sheet.pdf){target="_blank"}!
 
 There is also this [time complexity lesson](https://codility.com/media/train/1-TimeComplexity.pdf){target="_blank"} by [Codility](https://codility.com/){target="_blank"} that I found useful.
 
-## Big O Summary
+## Summary - Big O
 
 So good code is code that is __readable__ and __scalable__.
 
