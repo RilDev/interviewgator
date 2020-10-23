@@ -11,3 +11,49 @@ Remember, at the end of the day, programs are simply data structures and algorit
 `Data Structures + Algorithms = Program`
 
 And great programmers know how to pick the right data structure with the right algorithms to write good programs. Programs that are readable and scalable.
+
+No matter if you are a web developer or a game developer or anything in between, once you understand data-structure and algorithms, you will be able to use them to solve all kind of technical problems. That's why companies like Google, Facebook and Amazon ask questions on data-structures and algorithms, because although it may be important to know the latest and greatest Javascript syntax or library, those things change. If you know the fondamentals though, you will be able to make the right decision in any situation. This is why this knowledge is so valuable.
+
+## What Is A Data-Structure?
+
+A data-structure is a collection of values. The values can have relations among them and functions applied to them. Each one is diffrent in what it can do and what it is useful for. __Each data-structure is good / specialized for it's own thing.__
+
+Data-structure are like containers such as a back-pack, a fridge or a folder, each has its specialty: the back-pack for books, the fridge for food and the folder for documents.
+
+There are two parts to a data-structure:
+
+1. How to build one
+
+2. How to use it
+
+The goal of this course is to understand data-structure so that you can pick the right one for the job.
+
+### How Computers Store Data
+
+In order to understand the value of data-structures, we have to go deep down into the way computers work at a fundamental level. In order for a computer to run code, you have to keep track of things like variables (numbers, strings, arrays). The variables are store in the Random Access Memory (RAM). That's how programs run. On top of that, we have storage to store our video files, music files, documents... that storage in contrast with the RAM is persistant. When we shut down our computer, those files stay on the drive. So why not only use persistant storage to run programs? The problem with persistant storage is that it is slow.
+
+A computer is run by the Central Processing Unit (CPU), it is the part doing all the calcualtions that we need. The CPU needs access to the RAM and the storage. But it can access the information in the RAM a lot faster.
+
+When we use a software, the CPU holds all the variables it needs to run the software in the RAM. And when it saves something in the program, it stores permanently some information in the storage. Like it, next time we turn on the computer, our files will still be here.
+
+A RAM is like a massive shelf, that holds data. Each of these shelves is composed of 8 bits. A bit is either on of off, 1 or 0. A series of 8 bits is called a byte. So each shelves in RAM is composed of 1 byte. The RAM has a memory controller that allows the CPU to access any byte very fast. Keep in mind that the memory controller will access bytes that are closed together faster. In addition, the CPU has a tiny cache to speed up even more memory access.
+
+### Why Is This Important For Data Structure?
+
+Data structures are ways for us to store information. For example, with a `var a = 1`, the integer `1` is stored in the RAM as a 32 or 64 (for more recent systems) bit informantion.
+
+A data structure is a way to manage data in the RAM. Some are organized close to each other, some are organized far from each other. And each one has different pros and cons when accessing and writing to the RAM.
+
+We are now going to learn more about data structures with this low level knowledge of how computers work.
+
+Each language may have different data types (numbers, strings, booleans...) and data structures (arrays, objects...) to organize these data types.
+
+Does it mean that we have to stick to the data structures available in a perticular language? Not really, we can create new data structures from existing ones!
+
+## Array
+
+Arrays organize items sequentially, that means one after another in memory. They are probably the simplest and most widely used data structure. Arrays have the least amount of rules. And because they are stores sequentially in memory, they also have the smallest footprint of all data structures. If all you need is to store data and to iterate over it, arrays are the best choice. Especially if you know the indexes of the items stored.
+
+lookup | push | insert | delete
+--- | --- | ---
+O(1) | O(1) | O(n) | O(n)
