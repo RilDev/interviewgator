@@ -187,33 +187,37 @@
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<p>```
-const strings = [‘a’, ‘b’, ‘c’, ‘d’];
-// the strings array occupies 4 bytes for each letter =&gt; 4 bytes * 4 = 16 bytes in memory</p>
-<p>// lookup: O(1)
+<pre><code>const strings = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;];
+// the strings array occupies 4 bytes for each letter =&gt; 4 bytes * 4 = 16 bytes in memory
+
+// lookup: O(1)
 // to see what is the value at the demanded index
-console.log(‘lookup strings[2]:’ + strings[2]);
-// lookups in arrays are constant time, O(1), because the computer already knows where the 3rd item is going to be since the array is squentially stored in memory.</p>
-<p>// push: O(1)
+console.log(&#39;lookup strings[2]: &#39; + strings[2]);
+// lookups in arrays are constant time, O(1), because the computer already knows where the 3rd item is going to be since the array is squentially stored in memory.
+
+// push: O(1)
 // add an item at the end of the array
-strings.push(‘e’);
-console.log(<code>strings.push('e'): ${strings}</code>);
-// pushes are constant time, O(1), because the new item is simply added at the end of the array in memory, without looping over anything.</p>
-<p>// pop: O(1)
+strings.push(&#39;e&#39;);
+console.log(`strings.push(&#39;e&#39;): ${strings}`);
+// pushes are constant time, O(1), because the new item is simply added at the end of the array in memory, without looping over anything.
+
+// pop: O(1)
 // remove an item from the end of the array
 strings.pop();
-console.log(<code>strings.pop(): ${strings}</code>);
-// popes are also constant time, O(1), because we simply remove the last item, without looping through anything.</p>
-<p>// unshift: O(n)
+console.log(`strings.pop(): ${strings}`);
+// popes are also constant time, O(1), because we simply remove the last item, without looping through anything.
+
+// unshift: O(n)
 // add an item at the begining of the array
-strings.unshift(‘z’);
-console.log(<code>strings.unshift('z'): ${strings}</code>);
-// unshiftes are linear time, O(n), because when we add an item at the begining, we then have to loop through all the items to reasign the indexes to all the values that have been displaced.</p>
-<p>// splice: O(n)
+strings.unshift(&#39;z&#39;);
+console.log(`strings.unshift(&#39;z&#39;): ${strings}`);
+// unshiftes are linear time, O(n), because when we add an item at the begining, we then have to loop through all the items to reasign the indexes to all the values that have been displaced.
+
+// splice: O(n)
 // in this example, we will use splice to insert an item at the desired index
-strings.splice(2, 0, ‘n’);
-console.log(<code>strings.splice(2, 0, 'n'): ${strings}</code>);
-// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```</p>
+strings.splice(2, 0, &#39;n&#39;);
+console.log(`strings.splice(2, 0, &#39;n&#39;): ${strings}`);
+// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```</code></pre>
 <div class="caption">
 <p>
 Try it out on <a href="https://repl.it/@RilDev/Array-Data-Structure" target="_blank">repl.it</a>!
