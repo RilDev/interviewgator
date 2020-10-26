@@ -105,7 +105,12 @@
 <li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#how-computers-store-data"><i class="fa fa-check"></i><b>3.1.1</b> How Computers Store Data</a></li>
 <li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#why-is-this-important-for-data-structure"><i class="fa fa-check"></i><b>3.1.2</b> Why Is This Important For Data Structure?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#array-data-structure"><i class="fa fa-check"></i><b>3.2</b> Array Data Structure</a></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#array-data-structure"><i class="fa fa-check"></i><b>3.2</b> Array Data Structure</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#arrays-big-o"><i class="fa fa-check"></i><b>3.2.1</b> Array’s Big O</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#static-vs-dynamic-arrays"><i class="fa fa-check"></i><b>3.2.2</b> Static VS Dynamic Arrays</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures.html"><a href="data-structures.html#how-to-build-an-array"><i class="fa fa-check"></i><b>3.2.3</b> How To Build An Array</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#how-to-use-an-array"><i class="fa fa-check"></i><b>3.2.4</b> How To Use An Array</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>4</b> Algorithms</a></li>
 <li class="chapter" data-level="5" data-path="non-technical.html"><a href="non-technical.html"><i class="fa fa-check"></i><b>5</b> Non Technical</a></li>
@@ -170,18 +175,22 @@
 <div id="array-data-structure" class="section level2">
 <h2><span class="header-section-number">3.2</span> Array Data Structure</h2>
 <p>Arrays organize items sequentially, that means one after another in memory. They are probably the simplest and most widely used data structure. Arrays have the least amount of rules. And because they are stores sequentially in memory, they also have the smallest footprint of all data structures. If all you need is to store data and to iterate over it, arrays are the best choice. Especially if you know the indexes of the items stored.</p>
+<div id="arrays-big-o" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Array’s Big O</h3>
 <table>
 <thead>
 <tr class="header">
 <th>lookup</th>
 <th>push</th>
 <th>insert</th>
+<th>delete</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>O(1)</td>
 <td>O(1)</td>
+<td>O(n)</td>
 <td>O(n)</td>
 </tr>
 </tbody>
@@ -217,14 +226,232 @@ console.log(`strings.unshift(&#39;z&#39;): ${strings}`);
 // in this example, we will use splice to insert an item at the desired index
 strings.splice(2, 0, &#39;n&#39;);
 console.log(`strings.splice(2, 0, &#39;n&#39;): ${strings}`);
-// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```</code></pre>
+// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.</code></pre>
 <div class="caption">
 <p>
 Try it out on <a href="https://repl.it/@RilDev/Array-Data-Structure" target="_blank">repl.it</a>!
 </p>
 </div>
 <p>So arrays are really good for lookups and pushes. But not so good for inserting and deleting in an other place than at the end of the array.</p>
+</div>
+<div id="static-vs-dynamic-arrays" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Static VS Dynamic Arrays</h3>
+<p>There are two types of arrays: static arrays and dynamic arrays.</p>
+<p>What is the difference between the two?</p>
+<p><strong>Static Arrays:</strong> are fixed in size. You need to know the number of elements your array will hold ahead of time. Because arrays are allocated in adjacent blocks of memory when they are created there is no guaranty that after allocating a certain number of items in memory that you can keep on adding things on. Especially in order. So we solve this problem with static arrays by telling ahead of time how many shelves of memory we want to allocate to it.</p>
+<p><strong>Dynamic Arrays:</strong> are expandable in size. If needed, the array can be automatically expanded by copying it to a new location in memory with double it original size. For example, if we wanted to add an eighth item to a seven items array, that array would be copied to another location in memory with 14 shelves of memory and the eighth item would be added to it.</p>
+<p>When dynamic arrays add a new item that exceeds their current size, they loop through all the items in the array to copy them to a new place in memory with <em>usually</em> two times more space in memory than the original array.</p>
+<p>Because of this, the Big O of dynamic arrays is as follow:</p>
+<table>
+<thead>
+<tr class="header">
+<th>lookup</th>
+<th>append*</th>
+<th>insert</th>
+<th>delete</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<div class="caption">
+<p>
+*can be O(n)
+</p>
+</div>
+<p><em>Note: in Big O notation tables, append is the same a push</em></p>
+<p>Low level languages like C++ let us use static arrays that we have to manually manage, while higher level languages like Java, Python or JavaScript use dynamic arrays. It is a trade of: speed for convinence. Low level languages allow us to tweak things to make them much faster, but it is harder to manage.</p>
+<p>Most of the time during interviews, you will be working with dynamic arrays. But it is important to understand things at a fundamental level. For instance, now you know that to <code>push</code> an item in an array is <code>O(1)</code>, but that once in a while, it can be an <code>O(n)</code> operation.</p>
+</div>
+<div id="how-to-build-an-array" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> How To Build An Array</h3>
+<p>Following is a basic array implementation:</p>
+<pre><code>class CustomArray {
+  // constructor: length and data
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
 
+  // get: return value at specific index
+  get(index) {
+    return this.data[index];
+  }
+
+  // push: append item at the end of the array
+  push(item) {
+    // add item at the end of the array
+    this.data[this.length] = item;
+    // increase length property
+    this.length++;
+    // return updated length property
+    return this.length;
+  }
+
+  // pop: remove array&#39;s last element
+  pop() {
+    // copy last item
+    const lastItem = this.data[this.length - 1];
+    // delete last item
+    delete this.data[this.length - 1];
+    // decrease length
+    this.length--;
+    // return last item&#39;s copy
+    return lastItem;
+  }
+
+  // delete: delete an item at specified index
+  delete(index) {
+    // copy index to delete
+    const deletedItem = this.data[index]
+    // shift elements from index to delete
+    this.shiftItemsIndex(index);
+    // remove last element
+    delete this.data[this.length - 1];
+    // return deleted item
+    return deletedItem;
+  }
+
+  // shift items&#39; indexes to the left to remove item at specified index
+  shiftItemsIndex(index) {
+    // loop from index to the end of the array,
+    // attribute to each index the value of the next item
+    for (let i = index; i &lt; this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+  }
+
+}
+
+// create new array
+const newArray = new CustomArray();
+// log the array
+console.log(&#39;created array:&#39;);
+console.log(newArray);
+console.log(&#39;---&#39;)
+
+// push items to the array
+newArray.push(1);
+newArray.push(2);
+newArray.push(3);
+newArray.push(4);
+newArray.push(5);
+newArray.push(6);
+newArray.push(7);
+// log push result
+console.log(&#39;push to array:&#39;);
+console.log(newArray);
+console.log(&#39;---&#39;)
+
+// pop items from array
+newArray.pop();
+newArray.pop();
+newArray.pop();
+// log pop result
+console.log(&#39;pop from array:&#39;);
+console.log(newArray);
+console.log(&#39;---&#39;)
+
+// delete items from array
+newArray.delete(2);
+// log delete result
+console.log(&#39;delete from array:&#39;);
+console.log(newArray);
+console.log(&#39;---&#39;)
+
+// get item in array
+console.log(&#39;get item in array:&#39;);
+console.log(newArray.get(1));</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/How-To-Build-An-Array" target="_blank">repl.it</a>!
+</p>
+</div>
+<p><em>Note: Array in JavaScript are objects.</em></p>
+<p><em>Note: String questions should be treated as array questions.You can use a method like <code>split</code> to convert it to an array and then retrun it as a string.</em></p>
+</div>
+<div id="how-to-use-an-array" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> How To Use An Array</h3>
+<p>The following are common interview questions.</p>
+<div id="reverse-a-string" class="section level4">
+<h4><span class="header-section-number">3.2.4.1</span> Reverse A String</h4>
+<pre><code>// Reverse a string
+// input: string
+// output: string reversed
+// checks: no input, too many inputs, input not a string, input less than 2 characters, large input
+// errors: no input, too many inputs, not a string
+// efficiency: O(n)
+// notes: none
+
+function reverseString(string) {
+  // errors
+  // no input or too many input
+  if (arguments.length !== 1) {
+    throw Error(&#39;Function takes exactly 1 input of type string.&#39;)
+  }
+
+  // input not a string
+  if (typeof string !== &#39;string&#39;) {
+    throw Error(&#39;Input must be of type string.&#39;)
+  }
+
+  // checks
+  // string length &lt; 2, no need to loop
+  if (string.length &lt; 2) {
+    return string;
+  }
+
+  // reverse string
+  // create reversed string variable
+  let reversedString = &#39;&#39;;
+  // loop through the string backward and push current value to reversed string
+  for (let i = string.length - 1; i &gt;= 0; i--) {
+    reversedString+= string[i];
+  }
+
+  // return reversed string
+  return reversedString;
+}
+
+// test the function
+// basic
+console.log(reverseString(&#39;Hello World!&#39;));
+// empty string
+console.log(reverseString(&#39;&#39;));
+// small string
+console.log(reverseString(&#39;a&#39;));
+console.log(reverseString(&#39;ab&#39;));
+console.log(reverseString(&#39;abc&#39;));
+// large string
+console.log(reverseString(&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus, massa in fermentum posuere, erat ligula molestie mi, sed auctor enim lacus varius eros. Vestibulum consequat iaculis cursus. Donec quam massa, consectetur sed quam sed, consectetur feugiat enim. Cras nibh massa, cursus et tellus ac, euismod sagittis lacus. In malesuada, nunc id finibus pretium, ligula velit hendrerit metus, vitae tincidunt erat diam pellentesque ante. Suspendisse dictum purus nunc, ac vehicula lectus luctus vitae. Proin euismod urna a eleifend gravida. Praesent ornare elementum diam quis accumsan. Vivamus volutpat metus a odio efficitur tempus. Phasellus blandit dapibus neque nec viverra. Pellentesque ut lacus quis orci viverra volutpat. Maecenas eleifend iaculis ligula a imperdiet. Nam a ornare nisi. Pellentesque cursus, massa at facilisis elementum, neque lacus euismod massa, quis ultrices elit massa in tellus.&#39;))
+
+//errors, uncomment 1 by 1 to see the error messages
+// no input
+// console.log(reverseString());
+// input not of type string
+// console.log(reverseString(123));
+// more than 1 input
+// console.log(reverseString(&#39;test1&#39;, &#39;test2&#39;));
+// input is a boolean
+// console.log(reverseString(true));
+// input is an object
+// console.log(reverseString({}));
+// input is an array
+// console.log(reverseString([]));</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Array-Question-Reverse-String" target="_blank">repl.it</a>!
+</p>
+</div>
+
+</div>
+</div>
 </div>
 </div>
             </section>
