@@ -67,7 +67,7 @@ const strings = ['a', 'b', 'c', 'd'];
 // lookup: O(1)
 // to see what is the value at the demanded index
 console.log('lookup strings[2]: ' + strings[2]);
-// lookups in arrays are constant time, O(1), because the computer already know where the 3rd item is going to be since the array is squentially stored in memory.
+// lookups in arrays are constant time, O(1), because the computer already knows where the 3rd item is going to be since the array is squentially stored in memory.
 
 // push: O(1)
 // add an item at the end of the array
@@ -97,4 +97,4 @@ console.log(`strings.splice(2, 0, 'n'): ${strings}`);
 Try it out on [repl.it](https://repl.it/@RilDev/Array-Data-Structure){target="_blank"}!
 ```
 
-So arrays are really good for lookup and pushes. But not so good for inserting in an other place than at the end of the array and deleting items from the array.
+So arrays are really good for lookups and pushes. But not so good for inserting and deleting in an other place than at the end of the array.
