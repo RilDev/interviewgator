@@ -7,3 +7,7 @@
 pre ~ .caption {
   margin-top: -1.275em;
 }
+
+tbody {
+  text-align: center;
+}

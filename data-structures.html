@@ -87,7 +87,7 @@
 <li class="chapter" data-level="1.3.4" data-path="big-o-notation.html"><a href="big-o-notation.html#rule-4-drop-non-dominants"><i class="fa fa-check"></i><b>1.3.4</b> Rule 4: Drop Non Dominants</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="big-o-notation.html"><a href="big-o-notation.html#big-o-cheat-sheet"><i class="fa fa-check"></i><b>1.4</b> Big O Cheat Sheet</a></li>
-<li class="chapter" data-level="1.5" data-path="big-o-notation.html"><a href="big-o-notation.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="big-o-notation.html"><a href="big-o-notation.html#summary---big-o"><i class="fa fa-check"></i><b>1.5</b> Summary - Big O</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="how-to-solve-coding-problems.html"><a href="how-to-solve-coding-problems.html"><i class="fa fa-check"></i><b>2</b> How To Solve Coding Problems</a><ul>
 <li class="chapter" data-level="2.1" data-path="how-to-solve-coding-problems.html"><a href="how-to-solve-coding-problems.html#what-are-companies-looking-for"><i class="fa fa-check"></i><b>2.1</b> What Are Companies Looking For?</a><ul>
@@ -98,8 +98,15 @@
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="how-to-solve-coding-problems.html"><a href="how-to-solve-coding-problems.html#interview-at-google"><i class="fa fa-check"></i><b>2.2</b> Interview At Google</a></li>
 <li class="chapter" data-level="2.3" data-path="how-to-solve-coding-problems.html"><a href="how-to-solve-coding-problems.html#coding-interview-cheat-sheet"><i class="fa fa-check"></i><b>2.3</b> Coding Interview Cheat Sheet</a></li>
+<li class="chapter" data-level="2.4" data-path="how-to-solve-coding-problems.html"><a href="how-to-solve-coding-problems.html#summary---how-to-solve-coding-problems"><i class="fa fa-check"></i><b>2.4</b> Summary - How To Solve Coding Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Structures</a></li>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Structures</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#what-is-a-data-structure"><i class="fa fa-check"></i><b>3.1</b> What Is A Data-Structure?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#how-computers-store-data"><i class="fa fa-check"></i><b>3.1.1</b> How Computers Store Data</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#why-is-this-important-for-data-structure"><i class="fa fa-check"></i><b>3.1.2</b> Why Is This Important For Data Structure?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#array-data-structure"><i class="fa fa-check"></i><b>3.2</b> Array Data Structure</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>4</b> Algorithms</a></li>
 <li class="chapter" data-level="5" data-path="non-technical.html"><a href="non-technical.html"><i class="fa fa-check"></i><b>5</b> Non Technical</a></li>
 <li class="chapter" data-level="6" data-path="playground.html"><a href="playground.html"><i class="fa fa-check"></i><b>6</b> Playground</a></li>
@@ -133,7 +140,88 @@
 <p>Remember, at the end of the day, programs are simply data structures and algorithms.</p>
 <p><code>Data Structures + Algorithms = Program</code></p>
 <p>And great programmers know how to pick the right data structure with the right algorithms to write good programs. Programs that are readable and scalable.</p>
+<p>No matter if you are a web developer or a game developer or anything in between, once you understand data-structure and algorithms, you will be able to use them to solve all kind of technical problems. That’s why companies like Google, Facebook and Amazon ask questions on data-structures and algorithms, because although it may be important to know the latest and greatest Javascript syntax or library, those things change. If you know the fondamentals though, you will be able to make the right decision in any situation. This is why this knowledge is so valuable.</p>
+<div id="what-is-a-data-structure" class="section level2">
+<h2><span class="header-section-number">3.1</span> What Is A Data-Structure?</h2>
+<p>A data-structure is a collection of values. The values can have relations among them and functions applied to them. Each one is diffrent in what it can do and what it is useful for. <strong>Each data-structure is good / specialized for it’s own thing.</strong></p>
+<p>Data-structure are like containers such as a back-pack, a fridge or a folder, each has its specialty: the back-pack for books, the fridge for food and the folder for documents.</p>
+<p>There are two parts to a data-structure:</p>
+<ol style="list-style-type: decimal">
+<li><p>How to build one</p></li>
+<li><p>How to use it</p></li>
+</ol>
+<p>The goal of this chapter is to understand data-structure so that you can pick the right one for the job.</p>
+<div id="how-computers-store-data" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> How Computers Store Data</h3>
+<p>In order to understand the value of data-structures, we have to go deep down into the way computers work at a fundamental level. In order for a computer to run code, you have to keep track of things like variables (numbers, strings, arrays). The variables are store in the Random Access Memory (RAM). That’s how programs run. On top of that, we have storage to store our video files, music files, documents… that storage in contrast with the RAM is persistant. When we shut down our computer, those files stay on the drive. So why not only use persistant storage to run programs? The problem with persistant storage is that it is slow.</p>
+<p>A computer is run by the Central Processing Unit (CPU), it is the part doing all the calcualtions that we need. The CPU needs access to the RAM and the storage. But it can access the information in the RAM a lot faster.</p>
+<p>When we use a software, the CPU holds all the variables it needs to run the software in the RAM. And when it saves something in the program, it stores permanently some information in the storage. Like it, next time we turn on the computer, our files will still be here.</p>
+<p>A RAM is like a massive shelf, that holds data. Each of these shelves is composed of 8 bits. A bit is either on of off, 1 or 0. A series of 8 bits is called a byte. So each shelves in RAM is composed of 1 byte. The RAM has a memory controller that allows the CPU to access any byte very fast. Keep in mind that the memory controller will access bytes that are closed together faster. In addition, the CPU has a tiny cache to speed up even more memory access.</p>
+</div>
+<div id="why-is-this-important-for-data-structure" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Why Is This Important For Data Structure?</h3>
+<p>Data structures are ways for us to store information. For example, with a <code>var a = 1</code>, the integer <code>1</code> is stored in the RAM as a 32 or 64 (for more recent systems) bit informantion.</p>
+<p>A data structure is a way to manage data in the RAM. Some are organized close to each other, some are organized far from each other. And each one has different pros and cons when accessing and writing to the RAM.</p>
+<p>We are now going to learn more about data structures with this low level knowledge of how computers work.</p>
+<p>Each language may have different data types (numbers, strings, booleans…) and data structures (arrays, objects…) to organize these data types.</p>
+<p>Does it mean that we have to stick to the data structures available in a perticular language? Not really, we can create new data structures from existing ones!</p>
+</div>
+</div>
+<div id="array-data-structure" class="section level2">
+<h2><span class="header-section-number">3.2</span> Array Data Structure</h2>
+<p>Arrays organize items sequentially, that means one after another in memory. They are probably the simplest and most widely used data structure. Arrays have the least amount of rules. And because they are stores sequentially in memory, they also have the smallest footprint of all data structures. If all you need is to store data and to iterate over it, arrays are the best choice. Especially if you know the indexes of the items stored.</p>
+<table>
+<thead>
+<tr class="header">
+<th>lookup</th>
+<th>push</th>
+<th>insert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<p>```
+const strings = [‘a’, ‘b’, ‘c’, ‘d’];
+// the strings array occupies 4 bytes for each letter =&gt; 4 bytes * 4 = 16 bytes in memory</p>
+<p>// lookup: O(1)
+// to see what is the value at the demanded index
+console.log(‘lookup strings[2]:’ + strings[2]);
+// lookups in arrays are constant time, O(1), because the computer already knows where the 3rd item is going to be since the array is squentially stored in memory.</p>
+<p>// push: O(1)
+// add an item at the end of the array
+strings.push(‘e’);
+console.log(<code>strings.push('e'): ${strings}</code>);
+// pushes are constant time, O(1), because the new item is simply added at the end of the array in memory, without looping over anything.</p>
+<p>// pop: O(1)
+// remove an item from the end of the array
+strings.pop();
+console.log(<code>strings.pop(): ${strings}</code>);
+// popes are also constant time, O(1), because we simply remove the last item, without looping through anything.</p>
+<p>// unshift: O(n)
+// add an item at the begining of the array
+strings.unshift(‘z’);
+console.log(<code>strings.unshift('z'): ${strings}</code>);
+// unshiftes are linear time, O(n), because when we add an item at the begining, we then have to loop through all the items to reasign the indexes to all the values that have been displaced.</p>
+<p>// splice: O(n)
+// in this example, we will use splice to insert an item at the desired index
+strings.splice(2, 0, ‘n’);
+console.log(<code>strings.splice(2, 0, 'n'): ${strings}</code>);
+// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```</p>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Array-Data-Structure" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>So arrays are really good for lookups and pushes. But not so good for inserting and deleting in an other place than at the end of the array.</p>
 
+</div>
 </div>
             </section>
 
