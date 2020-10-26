@@ -26,7 +26,7 @@ There are two parts to a data-structure:
 
 2. How to use it
 
-The goal of this course is to understand data-structure so that you can pick the right one for the job.
+The goal of this chapter is to understand data-structure so that you can pick the right one for the job.
 
 ### How Computers Store Data
 
@@ -50,10 +50,51 @@ Each language may have different data types (numbers, strings, booleans...) and 
 
 Does it mean that we have to stick to the data structures available in a perticular language? Not really, we can create new data structures from existing ones!
 
-## Array
+## Array Data Structure
 
 Arrays organize items sequentially, that means one after another in memory. They are probably the simplest and most widely used data structure. Arrays have the least amount of rules. And because they are stores sequentially in memory, they also have the smallest footprint of all data structures. If all you need is to store data and to iterate over it, arrays are the best choice. Especially if you know the indexes of the items stored.
 
 lookup | push | insert | delete
 --- | --- | ---
 O(1) | O(1) | O(n) | O(n)
+
+__Example:__
+
+```
+const strings = ['a', 'b', 'c', 'd'];
+// the strings array occupies 4 bytes for each letter => 4 bytes * 4 = 16 bytes in memory
+
+// lookup: O(1)
+// to see what is the value at the demanded index
+console.log('lookup strings[2]: ' + strings[2]);
+// lookups in arrays are constant time, O(1), because the computer already know where the 3rd item is going to be since the array is squentially stored in memory.
+
+// push: O(1)
+// add an item at the end of the array
+strings.push('e');
+console.log(`strings.push('e'): ${strings}`);
+// pushes are constant time, O(1), because the new item is simply added at the end of the array in memory, without looping over anything.
+
+// pop: O(1)
+// remove an item from the end of the array
+strings.pop();
+console.log(`strings.pop(): ${strings}`);
+// popes are also constant time, O(1), because we simply remove the last item, without looping through anything.
+
+// unshift: O(n)
+// add an item at the begining of the array
+strings.unshift('z');
+console.log(`strings.unshift('z'): ${strings}`);
+// unshiftes are linear time, O(n), because when we add an item at the begining, we then have to loop through all the items to reasign the indexes to all the values that have been displaced.
+
+// splice: O(n)
+// in this example, we will use splice to insert an item at the desired index
+strings.splice(2, 0, 'n');
+console.log(`strings.splice(2, 0, 'n'): ${strings}`);
+// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Array-Data-Structure){target="_blank"}!
+```
+
+So arrays are really good for lookup and pushes. But not so good for inserting in an other place than at the end of the array and deleting items from the array.
