@@ -54,8 +54,10 @@ Does it mean that we have to stick to the data structures available in a perticu
 
 Arrays organize items sequentially, that means one after another in memory. They are probably the simplest and most widely used data structure. Arrays have the least amount of rules. And because they are stores sequentially in memory, they also have the smallest footprint of all data structures. If all you need is to store data and to iterate over it, arrays are the best choice. Especially if you know the indexes of the items stored.
 
+### Array's Big O
+
 lookup | push | insert | delete
---- | --- | ---
+--- | --- | --- | ---
 O(1) | O(1) | O(n) | O(n)
 
 __Example:__
@@ -91,10 +93,227 @@ console.log(`strings.unshift('z'): ${strings}`);
 // in this example, we will use splice to insert an item at the desired index
 strings.splice(2, 0, 'n');
 console.log(`strings.splice(2, 0, 'n'): ${strings}`);
-// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.```
+// splices are linear time, O(n), because we have to reassign the indexes that appear after the spliced part of the array by looping through them. We write it O(n) because we always plan for the worst case senario when using Big O notation.
+```
 
 ```{block, type="caption"}
 Try it out on [repl.it](https://repl.it/@RilDev/Array-Data-Structure){target="_blank"}!
 ```
 
 So arrays are really good for lookups and pushes. But not so good for inserting and deleting in an other place than at the end of the array.
+
+### Static VS Dynamic Arrays
+
+There are two types of arrays: static arrays and dynamic arrays.
+
+What is the difference between the two?
+
+__Static Arrays:__ are fixed in size. You need to know the number of elements your array will hold ahead of time. Because arrays are allocated in adjacent blocks of memory when they are created there is no guaranty that after allocating a certain number of items in memory that you can keep on adding things on. Especially in order. So we solve this problem with static arrays by telling ahead of time how many shelves of memory we want to allocate to it. 
+
+__Dynamic Arrays:__ are expandable in size. If needed, the array can be automatically expanded by copying it to a new location in memory with double it original size. For example, if we wanted to add an eighth item to a seven items array, that array would be copied to another location in memory with 14 shelves of memory and the eighth item would be added to it.
+
+When dynamic arrays add a new item that exceeds their current size, they loop through all the items in the array to copy them to a new place in memory with *usually* two times more space in memory than the original array.
+
+Because of this, the Big O of dynamic arrays is as follow:
+
+lookup | append\* | insert | delete
+--- | --- | --- | ---
+O(1) | O(1) | O(n) | O(n)
+
+```{block, type="caption"}
+*can be O(n)
+```
+
+*Note: in Big O notation tables, append is the same a push*
+
+Low level languages like C++ let us use static arrays that we have to manually manage, while higher level languages like Java, Python or JavaScript use dynamic arrays. It is a trade of: speed for convinence. Low level languages allow us to tweak things to make them much faster, but it is harder to manage.
+
+Most of the time during interviews, you will be working with dynamic arrays. But it is important to understand things at a fundamental level. For instance, now you know that to `push` an item in an array is `O(1)`, but that once in a while, it can be an `O(n)` operation.
+
+### How To Build An Array
+
+Following is a basic array implementation:
+
+```
+class CustomArray {
+  // constructor: length and data
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
+
+  // get: return value at specific index
+  get(index) {
+    return this.data[index];
+  }
+
+  // push: append item at the end of the array
+  push(item) {
+    // add item at the end of the array
+    this.data[this.length] = item;
+    // increase length property
+    this.length++;
+    // return updated length property
+    return this.length;
+  }
+
+  // pop: remove array's last element
+  pop() {
+    // copy last item
+    const lastItem = this.data[this.length - 1];
+    // delete last item
+    delete this.data[this.length - 1];
+    // decrease length
+    this.length--;
+    // return last item's copy
+    return lastItem;
+  }
+
+  // delete: delete an item at specified index
+  delete(index) {
+    // copy index to delete
+    const deletedItem = this.data[index]
+    // shift elements from index to delete
+    this.shiftItemsIndex(index);
+    // remove last element
+    delete this.data[this.length - 1];
+    // return deleted item
+    return deletedItem;
+  }
+
+  // shift items' indexes to the left to remove item at specified index
+  shiftItemsIndex(index) {
+    // loop from index to the end of the array,
+    // attribute to each index the value of the next item
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+  }
+
+}
+
+// create new array
+const newArray = new CustomArray();
+// log the array
+console.log('created array:');
+console.log(newArray);
+console.log('---')
+
+// push items to the array
+newArray.push(1);
+newArray.push(2);
+newArray.push(3);
+newArray.push(4);
+newArray.push(5);
+newArray.push(6);
+newArray.push(7);
+// log push result
+console.log('push to array:');
+console.log(newArray);
+console.log('---')
+
+// pop items from array
+newArray.pop();
+newArray.pop();
+newArray.pop();
+// log pop result
+console.log('pop from array:');
+console.log(newArray);
+console.log('---')
+
+// delete items from array
+newArray.delete(2);
+// log delete result
+console.log('delete from array:');
+console.log(newArray);
+console.log('---')
+
+// get item in array
+console.log('get item in array:');
+console.log(newArray.get(1));
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/How-To-Build-An-Array){target="_blank"}!
+```
+
+_Note: Array in JavaScript are objects._
+
+_Note: String questions should be treated as array questions.You can use a method like `split` to convert it to an array and then retrun it as a string._
+
+### How To Use An Array
+
+The following are common interview questions.
+
+#### Reverse A String
+
+```
+// Reverse a string
+// input: string
+// output: string reversed
+// checks: no input, too many inputs, input not a string, input less than 2 characters, large input
+// errors: no input, too many inputs, not a string
+// efficiency: O(n)
+// notes: none
+
+function reverseString(string) {
+  // errors
+  // no input or too many input
+  if (arguments.length !== 1) {
+    throw Error('Function takes exactly 1 input of type string.')
+  }
+
+  // input not a string
+  if (typeof string !== 'string') {
+    throw Error('Input must be of type string.')
+  }
+
+  // checks
+  // string length < 2, no need to loop
+  if (string.length < 2) {
+    return string;
+  }
+
+  // reverse string
+  // create reversed string variable
+  let reversedString = '';
+  // loop through the string backward and push current value to reversed string
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversedString+= string[i];
+  }
+
+  // return reversed string
+  return reversedString;
+}
+
+// test the function
+// basic
+console.log(reverseString('Hello World!'));
+// empty string
+console.log(reverseString(''));
+// small string
+console.log(reverseString('a'));
+console.log(reverseString('ab'));
+console.log(reverseString('abc'));
+// large string
+console.log(reverseString('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus, massa in fermentum posuere, erat ligula molestie mi, sed auctor enim lacus varius eros. Vestibulum consequat iaculis cursus. Donec quam massa, consectetur sed quam sed, consectetur feugiat enim. Cras nibh massa, cursus et tellus ac, euismod sagittis lacus. In malesuada, nunc id finibus pretium, ligula velit hendrerit metus, vitae tincidunt erat diam pellentesque ante. Suspendisse dictum purus nunc, ac vehicula lectus luctus vitae. Proin euismod urna a eleifend gravida. Praesent ornare elementum diam quis accumsan. Vivamus volutpat metus a odio efficitur tempus. Phasellus blandit dapibus neque nec viverra. Pellentesque ut lacus quis orci viverra volutpat. Maecenas eleifend iaculis ligula a imperdiet. Nam a ornare nisi. Pellentesque cursus, massa at facilisis elementum, neque lacus euismod massa, quis ultrices elit massa in tellus.'))
+
+//errors, uncomment 1 by 1 to see the error messages
+// no input
+// console.log(reverseString());
+// input not of type string
+// console.log(reverseString(123));
+// more than 1 input
+// console.log(reverseString('test1', 'test2'));
+// input is a boolean
+// console.log(reverseString(true));
+// input is an object
+// console.log(reverseString({}));
+// input is an array
+// console.log(reverseString([]));
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Reverse-String){target="_blank"}!
+```
+
