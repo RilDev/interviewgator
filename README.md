@@ -28,7 +28,7 @@ Don't forget to run `npm i` in the project directory to install all the dependen
 
 ### Big O notation
 
-- [ ] Big O notation
+- [x] Big O notation
 
 ### Data structures
 
