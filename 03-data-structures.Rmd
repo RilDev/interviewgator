@@ -239,7 +239,7 @@ Try it out on [repl.it](https://repl.it/@RilDev/How-To-Build-An-Array){target="_
 
 _Note: Array in JavaScript are objects._
 
-_Note: String questions should be treated as array questions.You can use a method like `split` to convert it to an array and then retrun it as a string._
+_Note: String questions should be treated as array questions. You can use a method like `split` to convert it to an array, loop through it, and then retrun it as a string._
 
 ### How To Use An Array
 
@@ -317,3 +317,170 @@ console.log(reverseString('Lorem ipsum dolor sit amet, consectetur adipiscing el
 Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Reverse-String){target="_blank"}!
 ```
 
+Another solution, specific to JavaScript ES6 could have been:
+
+```
+// Reverse a string
+// input: string
+// output: string reversed
+// checks: no input, too many inputs, input not a string, input less than 2 characters, large input
+// errors: no input, too many inputs, not a string
+// efficiency: O(n)
+// notes: none
+
+const reverseString = string => [...string].reverse().join('');
+
+// test the function
+// basic
+console.log(reverseString('Hello World!'));
+// empty string
+console.log(reverseString(''));
+// small string
+console.log(reverseString('a'));
+console.log(reverseString('ab'));
+console.log(reverseString('abc'));
+// large string
+console.log(reverseString('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus, massa in fermentum posuere, erat ligula molestie mi, sed auctor enim lacus varius eros. Vestibulum consequat iaculis cursus. Donec quam massa, consectetur sed quam sed, consectetur feugiat enim. Cras nibh massa, cursus et tellus ac, euismod sagittis lacus. In malesuada, nunc id finibus pretium, ligula velit hendrerit metus, vitae tincidunt erat diam pellentesque ante. Suspendisse dictum purus nunc, ac vehicula lectus luctus vitae. Proin euismod urna a eleifend gravida. Praesent ornare elementum diam quis accumsan. Vivamus volutpat metus a odio efficitur tempus. Phasellus blandit dapibus neque nec viverra. Pellentesque ut lacus quis orci viverra volutpat. Maecenas eleifend iaculis ligula a imperdiet. Nam a ornare nisi. Pellentesque cursus, massa at facilisis elementum, neque lacus euismod massa, quis ultrices elit massa in tellus.'))
+
+//errors, uncomment 1 by 1 to see the error messages
+// no input
+// console.log(reverseString());
+// input not of type string
+// console.log(reverseString(123));
+// more than 1 input
+// console.log(reverseString('test1', 'test2'));
+// input is a boolean
+// console.log(reverseString(true));
+// input is an object
+// console.log(reverseString({}));
+// input is an array
+// console.log(reverseString([]));
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Reverse-String-2){target="_blank"}!
+```
+
+_Note: The behavior of this function is slightly different from the previous one. See if it fits your needs!_
+
+### Merge Sorted Arrays
+
+```
+// merge sorted arrays
+// input: 2 arrays of integers
+// output: 1 merged & sorted array of integers
+// example: [1,2,3] & [1,2,3] => [1,1,2,2,3,3]
+// check: no input, too many inputs, only one array, not arrays, empty arrays, array not exclusively composed of integers, small arrays, big arrays
+// error: no input, too many inputs, only one array, not arrays, array not exclusively composed of integers
+// efficiency: time O(n) & space O(n)
+// notes: are given arrays sorted? are there only integers in the array, or can I get float, strings...? are the integers only positive numbers?
+
+function mergeSortedArrays(array1, array2) {
+  // errors
+  // no input, only one input, too many inputs
+  if (arguments.length !== 2) {
+    throw Error('Function must be invoqued with exaclty 2 arguments.')
+  }
+  // inputs not arrays
+  for (let i = 0; i < arguments.length; i++) {
+    if (Array.isArray(arguments[i]) === false) {
+      throw Error('Function only takes Arrays.')
+    }
+  }
+  
+  // inputs contain something else than integers
+  for (argument of arguments) {
+    if (argument.some(value => typeof value !== 'number')) {
+      throw Error('Arrays must contain only numbers.')
+    }
+  }
+
+  // checks
+  // empty array: return the other array as is. if both empty, return the first one.
+  if (array1.length === 0) {
+    return array2;
+  }
+  if (array2.length === 0) {
+    return array1;
+  }
+
+  // concatenate the sorted arrays
+  // init variables
+  const mergedArray = []; // final result
+  let array1Element = array1[0];
+  let array2Element = array2[0];
+  let array1Counter = 1;
+  let array2Counter = 1;
+  
+  // starting from element 0 of arrays, compare each elements.
+  while (array1Element || array2Element) {
+    // if element form array1 is smaller than element from array2, push element array1 to mergedArray, else push element array2 to mergedArray
+    // check if array2Element exist (not undefined), if it does check the values if not, directly push array1Element.
+    // if array1Element does not exist, array1Element < array2Element will return false. So it will push array2Element to the mergedArray.
+    // At this point you could separate this check logic to it's own function for readability. If you don't have the time to do so, simply tell the interviewer. He will count it as if you coded it.
+    if (!array2Element || array1Element < array2Element) {
+      mergedArray.push(array1Element);
+      array1Element = array1[array1Counter]; // assign array1Element to next value in array1
+      array1Counter++; // update counter
+    } else {
+      mergedArray.push(array2Element);
+      array2Element = array2[array2Counter]; // assign array2Element to next value in array2
+      array2Counter++; // update counter
+    }
+  }
+  
+  // return concatenated sorted array
+  return mergedArray;
+}
+
+// tests
+// basic
+console.log(mergeSortedArrays([1,2,3], [1,2,3]));
+console.log(mergeSortedArrays([1,2,3], [1,2]));
+console.log(mergeSortedArrays([1], [1,2,3]));
+// small arrays
+console.log(mergeSortedArrays([], []));
+console.log(mergeSortedArrays([], [1,2,3]));
+console.log(mergeSortedArrays([1,2,3], []));
+// big arrays
+const bigArray = () => Array(10000).fill(0)
+console.log(mergeSortedArrays(bigArray(), bigArray()));
+
+// errors: uncomment lines 1 by 1 to test errors
+// no input
+// console.log(mergeSortedArrays());
+// only one input
+// console.log(mergeSortedArrays([1,2,3]));
+// more than 2 inputs
+// console.log(mergeSortedArrays([1,2,3], [1,2,3], [1,2,3]));
+// inputs not arrays
+// console.log(mergeSortedArrays('1,2,3', 5));
+// inputs contain something else that integers
+// console.log(mergeSortedArrays(['a','b','c'], [1,2,3]));
+```
+
+```{block, type="caption"}
+Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Merge-Sorted-Arrays){target="_blank"}!
+```
+
+Remember that if you don't have the time to code something, you can simply tell the interviewer what you would do if you had the time. He will count it as if you actually coded it!
+
+### Two Sum
+
+[Leetcode Problem Two Sum](https://leetcode.com/problems/two-sum/description/){target="_blank"}
+
+### Maximum Subarray
+
+[Leetcode Problem Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/){target="_blank"}
+
+### Move Zeroes
+
+[Leetcode Problem Move Zeroes](https://leetcode.com/problems/move-zeroes/description/){target="_blank"}
+
+### Contains Duplicate
+
+[Leetcode Problem Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/){target="_blank"}
+
+### Rotate Array
+
+[Leetcode Problem Rotate Array](https://leetcode.com/problems/rotate-array/description/){target="_blank"}
