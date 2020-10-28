@@ -497,3 +497,6 @@ Fast lookups | Slow inserts
 Fast push/pop | Slow deletes
 Ordered | fixed sized\*
 
+```{block, type="caption"}
+*if using static array
+```
