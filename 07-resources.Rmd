@@ -12,6 +12,7 @@
 
 - [Codility](https://www.codility.com/){target="_blank"}: A platform used by many tech companies like [TopTal](https://www.toptal.com/){target="_blank"} to test people applying to them
 - [Hackerrank](https://www.hackerrank.com/){target="_blank"}: Another platform that companies use to test developers
+- [leetCode](https://leetcode.com/){target="_blank"}: Enhance your skills, expand your knowledge, and prepare for technical interviews
 
 ## Videos
 
