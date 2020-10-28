@@ -32,7 +32,7 @@ Don't forget to run `npm i` in the project directory to install all the dependen
 
 ### Data structures
 
-- [ ] Arrays
+- [x] Arrays
 - [ ] Hash Tables
 - [ ] Singly Linked Lists
 - [ ] Doubly Linked Lists
