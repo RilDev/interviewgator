@@ -363,7 +363,7 @@ Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Reverse-String-2)
 
 _Note: The behavior of this function is slightly different from the previous one. See if it fits your needs!_
 
-### Merge Sorted Arrays
+#### Merge Sorted Arrays
 
 ```
 // merge sorted arrays
@@ -465,22 +465,35 @@ Try it out on [repl.it](https://repl.it/@RilDev/Array-Question-Merge-Sorted-Arra
 
 Remember that if you don't have the time to code something, you can simply tell the interviewer what you would do if you had the time. He will count it as if you actually coded it!
 
-### Two Sum
+#### Two Sum
 
 [Leetcode Problem Two Sum](https://leetcode.com/problems/two-sum/description/){target="_blank"}
 
-### Maximum Subarray
+#### Maximum Subarray
 
 [Leetcode Problem Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/){target="_blank"}
 
-### Move Zeroes
+#### Move Zeroes
 
 [Leetcode Problem Move Zeroes](https://leetcode.com/problems/move-zeroes/description/){target="_blank"}
 
-### Contains Duplicate
+#### Contains Duplicate
 
 [Leetcode Problem Contains Duplicate](https://leetcode.com/problems/contains-duplicate/description/){target="_blank"}
 
-### Rotate Array
+#### Rotate Array
 
 [Leetcode Problem Rotate Array](https://leetcode.com/problems/rotate-array/description/){target="_blank"}
+
+#### Longest Word
+
+[Coderbyte Longest Word](https://coderbyte.com/information/Longest%20Word){target="_blank"}
+
+### Pros And Cons Of Arrays
+
+Pros | Cons
+--- | ---
+Fast lookups | Slow inserts
+Fast push/pop | Slow deletes
+Ordered | fixed sized\*
+
