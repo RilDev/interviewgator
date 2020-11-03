@@ -112,6 +112,13 @@
 <li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#how-to-use-an-array"><i class="fa fa-check"></i><b>3.2.4</b> How To Use An Array</a></li>
 <li class="chapter" data-level="3.2.5" data-path="data-structures.html"><a href="data-structures.html#pros-and-cons-of-arrays"><i class="fa fa-check"></i><b>3.2.5</b> Pros And Cons Of Arrays</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#hash-table-data-structure"><i class="fa fa-check"></i><b>3.3</b> Hash Table Data Structure</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-structures.html"><a href="data-structures.html#what-is-a-hash-function"><i class="fa fa-check"></i><b>3.3.1</b> What is a hash function?</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-structures.html"><a href="data-structures.html#hash-tabless-big-o"><i class="fa fa-check"></i><b>3.3.2</b> Hash Tables’s Big O</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-structures.html"><a href="data-structures.html#how-to-build-a-hash-table"><i class="fa fa-check"></i><b>3.3.3</b> How To Build A Hash Table?</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-structures.html"><a href="data-structures.html#how-to-use-a-hash-table"><i class="fa fa-check"></i><b>3.3.4</b> How To Use A Hash Table</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-structures.html"><a href="data-structures.html#pros-and-cons-of-hash-tables"><i class="fa fa-check"></i><b>3.3.5</b> Pros And Cons Of Hash Tables</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>4</b> Algorithms</a></li>
 <li class="chapter" data-level="5" data-path="non-technical.html"><a href="non-technical.html"><i class="fa fa-check"></i><b>5</b> Non Technical</a></li>
@@ -379,7 +386,7 @@ Try it out on <a href="https://repl.it/@RilDev/How-To-Build-An-Array" target="_b
 </div>
 <div id="how-to-use-an-array" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> How To Use An Array</h3>
-<p>The following are common interview questions.</p>
+<p>The following questions are common interview questions.</p>
 <div id="reverse-a-string" class="section level4">
 <h4><span class="header-section-number">3.2.4.1</span> Reverse A String</h4>
 <pre><code>// Reverse a string
@@ -642,6 +649,349 @@ Try it out on <a href="https://repl.it/@RilDev/Array-Question-Merge-Sorted-Array
 </tr>
 </tbody>
 </table>
+<div class="caption">
+<p>
+*if using static array
+</p>
+</div>
+</div>
+</div>
+<div id="hash-table-data-structure" class="section level2">
+<h2><span class="header-section-number">3.3</span> Hash Table Data Structure</h2>
+<p>Hash tables or hashmaps, maps, unordered maps, dictionaries, objects… there are many ways to call this data structure. And different languages have different names for it and slight variations on the hash table. Objects for example in JavaScript are a type of hash table. The reason this book starts with arrays and hash tables is because they are very common and will be part of every interview questions. They are an absolute must. Hash tables are extreamly important all accross data-science, you see them in databases, in caches… So what are they? And why are they called hash tables?</p>
+<p>Hash tables work with an <code>object.key = value</code> pair, key / value pair. For example, an object <code>person</code> can have a key <code>name</code> of value <code>"John"</code>: <code>person.name =  "John"</code>.</p>
+<p>In hash tables, the key is used as the index of where to find the value in memory. With arrays, we had an index which is a number, but with hash tables, we use the key to find the value. This is done with a hash function. We pass the key to the hash function that will return the menory address of the value. The address strores both the key and the value.</p>
+<div id="what-is-a-hash-function" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> What is a hash function?</h3>
+<p>Hash functions are used all accross computer science. A hash function is simply a function that generate an output of fixed length for each input that is gets. You probably already know about the <code>md5</code> or the <code>sha1</code> hash functions. Here is a tool to help you understand how it works: <a href="https://passwordsgenerator.net/md5-hash-generator/" target="blank">md5 hash generator</a></p>
+<p>As you can see, the <code>md5</code> hash function generates a random string of characters.</p>
+<p>Here are the rules of a hash function:</p>
+<ol style="list-style-type: decimal">
+<li>It is one way: if you give the output to someone, they will have no idea what the input was.</li>
+<li>It always gives the same output, that what we call an idempotent function, for the same input: with the <code>md5</code> hash for example, the input <code>Hello World!</code> will always return <code>ED076287532E86365E841E92BFC50D8C</code>. But changing any part of the input will result in an output totally different: <code>Hello World</code> with no <code>!</code> gives <code>B10A8DB164E0754105B7A99BE72E3FE5</code>.</li>
+</ol>
+<p>So for hash tables, we input the object key into the hash function and get back the memory address.</p>
+<p>Because the hash function used is very fast, we count the hash table lookup as an <code>O(1)</code> operation.</p>
+</div>
+<div id="hash-tabless-big-o" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Hash Tables’s Big O</h3>
+<table>
+<thead>
+<tr class="header">
+<th>insert</th>
+<th>lookup</th>
+<th>delete</th>
+<th>search</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O(1)</td>
+<td>O(1)*</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<div class="caption">
+<p>
+*can be O(n) in case of a collision
+</p>
+</div>
+<p><strong>Example:</strong></p>
+<pre><code>const user = {
+  firstName: &#39;John&#39;,
+  lastName: &#39;Doe&#39;,
+  age: 54,
+}
+
+// lookup: O(1)
+// to see what is the value at the demanded key
+console.log(&#39;lookup user.firstName: &#39; + user.firstName);
+
+// insert: 0(1)
+// to add a key/value pair to the object
+user.isAlive = true;
+console.log(&#39;insert user.isAlive: &#39; + user.isAlive);
+
+// delete: O(1)
+// to remove the specified key
+delete user.isAlive
+console.log(&#39;delete user.isAlive: &#39; + user.isAlive);</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Hash-Table-Data-Structure" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>So what’s the catch? How come we still use arrays if hash tables are so fast and versatile? The problem with hash tables is that with a limited memory available on our computer, the same memory space will be allocated multiple times, slowing down the read/write to <code>O(n/k)</code> where <code>k</code> is the number of items stored at the same memory address. So, a read/write operation in a hash table could be <code>O(n)</code>.</p>
+<div class="figure">
+<img src="assets/hash-table-memory-stack-animation.gif" alt="Data Structure Visualizations: Open Hashing" />
+<p class="caption">Data Structure Visualizations: <a href="https://www.cs.usfca.edu/~galles/visualization/OpenHash.html" target="_blank">Open Hashing</a></p>
+</div>
+</div>
+<div id="how-to-build-a-hash-table" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> How To Build A Hash Table?</h3>
+<p>Following is a basic hash table implementation:</p>
+<pre><code>class HashTable {
+  // init an array of size n
+  constructor(size) {
+    this.data = new Array(size);
+  }
+
+  // set key/value pair -&gt; O(1)
+  set(key, value) {
+    const keyValue = [key, value];
+
+    // find memory address from key
+    const address = this._hash(key);
+
+    // if memory address empty, create empty array
+    if (!this.data[address]) {
+      this.data[address] = [];
+    }
+
+    // push [key, value] to data[address]
+    this.data[address].push(keyValue);
+
+    // return [key, value]
+    return keyValue;
+  }
+
+  // get value from key -&gt; O(1) most of the time, can be O(n) in case of collision
+  get(key) {
+    // find the memory address
+    const address = this._hash(key);
+    const dataAdress = this.data[address];
+
+    // if memory address not empty:
+    if (dataAdress) {
+      // loop array elements
+      for (let i = 0; i &lt; dataAdress.length; i++) {
+        // if array[i].key === key, return array[i].value
+        if (dataAdress[i][0] === key) {
+          return dataAdress[i][1];
+        }
+      }
+    }
+
+    // else return undefined
+    return undefined;
+  }
+
+  // keys, return all the hash table&#39;s keys =&gt; O(n^2)
+  keys() {
+    // if data length = 0: return undefined
+    if (!this.data.length) {
+      return undefined;
+    }
+
+    // create array to keep all the keys
+    const allKeys = [];
+
+    // loop the data
+    for (let i = 0; i &lt; this.data.length; i++) {
+      // if data[i] not empty
+      if (this.data[i]) {
+        // if data[i] length &gt; 1
+        if (this.data[i].length &gt; 1) {
+          // loop data[i]
+          for (let j = 0; j &lt; this.data[i].length; j++) {
+            // push data[i][j][0] to keys array
+            allKeys.push(this.data[i][j][0]);
+          }
+        } else {//  else push data[i][0][0] in keys array
+          allKeys.push(this.data[i][0][0]);
+        }
+      }
+    }
+
+    // return all keys in array
+    return allKeys;
+  }
+
+  // hash, this is the algorithm assigning a key to a memory space
+  // Note: the &quot;_&quot; indicates that this method is private (it can&#39;t be used outside of the class). But in JavaScript, it actually is just a writing convention.
+  // time complexity of O(1), because the hash is fast and the key length are usually small
+  _hash(key) {
+    // init hash
+    let hash = 0;
+
+    // calculate hash: loop letters of key
+    // multiply is by i to prevent anagrams
+    // add to hash
+    // mod by HashTable size to avoid attributing to not existing memory space
+    for (let i = 0; i &lt; key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+    }
+
+    // return hash
+    return hash;
+  }
+}
+
+const hashTable = new HashTable(50);
+
+// set values
+console.log(&#39;set key: &quot;test&quot;, value: 1 =&gt; &#39; + hashTable.set(&#39;test&#39;, 1));
+console.log(&#39;set key: &quot;test&quot;, value: 1 =&gt; &#39; + hashTable.set(&#39;test2&#39;, 2));
+
+// get values
+console.log(&#39;get key: &quot;test&quot; =&gt; &#39; + hashTable.get(&#39;test&#39;));
+console.log(&#39;get key: &quot;test1&quot; =&gt; &#39; + hashTable.get(&#39;test1&#39;)); // returns undefined
+console.log(&#39;get key: &quot;test2&quot; =&gt; &#39; + hashTable.get(&#39;test2&#39;));
+
+// all keys
+console.log(&#39;keys: &#39; + hashTable.keys());</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/How-To-Build-A-Hash-Table" target="_blank">repl.it</a>!
+</p>
+</div>
+<p>Note: As you can see, iterating over the elements in the hash table, with the <code>keys</code> method, is very very slow! And the order in which the items where added to the hash table is lost.</p>
+</div>
+<div id="how-to-use-a-hash-table" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> How To Use A Hash Table</h3>
+<p>The following questions are common interview questions.</p>
+<div id="first-recurring-character" class="section level4">
+<h4><span class="header-section-number">3.3.4.1</span> First Recurring Character</h4>
+<p>This question comes straight from Google.</p>
+<pre><code>//Google Question
+//Given an array = [2,5,1,2,3,5,1,2,4]:
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
+
+//Given an array = [2,3,4,5]:
+//It should return undefined
+
+
+function firstRecurringCharacter(input) 
+}
+
+//Bonus... What if we had this:
+// [2,5,5,2,3,5,1,2,4]
+// return 5 because the pairs are before 2,2</code></pre>
+<p>And here is a possible answer to it:</p>
+<pre><code>// first recurring character
+// [2,5,1,2,3,5,1,2,4] returns 2
+// [2,5,5,2,3,5,1,2,4] returns 5
+// [2,3,4,5] returns undefined
+// input: array of int
+// output: int or undefined if no match found
+// check: no input, too many input, empty array, one element in array, not an array, not int in the array, small array, big array
+// error: no input, to many input, not array, not array of int
+// note: none.
+
+function firstRecurringCharacter(arrayOfInt) {
+  // error
+  // no input
+  // too many input
+  if (arguments.length !== 1) {
+    throw Error(&#39;Invoque function with 1 argument.&#39;)
+  }
+  // not an array
+  if (!Array.isArray(arrayOfInt)) {
+    throw Error(&#39;Argument must be an array.&#39;)
+  }
+  // not an array of int
+  if (arrayOfInt.some(element =&gt; !Number.isInteger(element))) {
+    throw Error(&#39;Argument must contain only integers.&#39;)
+  }
+
+  // check
+  // empty array: return undefined
+  // array 1 element: return undefined
+  if (arrayOfInt.length &lt;= 1) {
+    return undefined;
+  }
+
+  // hash table to store already seen int
+  const hasInt = {};
+  // loop arrayOfInt
+  for (let i = 0; i &lt; arrayOfInt.length; i++) {
+    // if int never seen
+    if (!hasInt[arrayOfInt[i]]) {
+      // add to list of seen int
+      hasInt[arrayOfInt[i]] = true;
+    } else { // else return reccuring int
+      return arrayOfInt[i];
+    }
+  }
+
+  // if no match has been found, return undefined
+  return undefined;
+}
+
+// check
+// empty array
+console.log(&#39;empty array: &#39; + firstRecurringCharacter([]));
+//one element in array
+console.log(&#39;one element in array: &#39; + firstRecurringCharacter([1]));
+// small array
+for (let i = 0; i &lt; 20; i++) {
+  console.log(&#39;small array: &#39; + firstRecurringCharacter(randomArrayGenerator()));
+}
+// big array
+for (let i = 0; i &lt; 20; i++) {
+  console.log(&#39;big array: &#39; + firstRecurringCharacter(randomArrayGenerator(500)));
+}
+
+// test
+
+// error, uncomment to check error
+// no input
+// firstRecurringCharacter()
+// too many input
+// firstRecurringCharacter([],[])
+// not an array
+// firstRecurringCharacter(&#39;string&#39;)
+// not int in the array
+// firstRecurringCharacter([1,2,3,&#39;a&#39;])
+
+// tool
+function randomArrayGenerator(size = 40, maxValue = 50) {
+  return Array.from({length: size}, () =&gt; Math.floor(Math.random() * maxValue));
+}</code></pre>
+<div class="caption">
+<p>
+Try it out on <a href="https://repl.it/@RilDev/Hash-Table-Question-First-Recurring-Character" target="_blank">repl.it</a>!
+</p>
+</div>
+</div>
+</div>
+<div id="pros-and-cons-of-hash-tables" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Pros And Cons Of Hash Tables</h3>
+<p>Hash tables are great when you want <code>access</code> to a certain value. That why there are used in databases. They are also very good to insert new values. We don’t have to worry too much about collision in memory and can asume that <code>inserts</code> are <code>O(1)</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fast Search</td>
+<td>Unordered</td>
+</tr>
+<tr class="even">
+<td>Fast Insert*</td>
+<td>Slow Iteration</td>
+</tr>
+<tr class="odd">
+<td>Custom Indexes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="caption">
+<p>
+*can be O(n) if there are collicions in memory
+</p>
+</div>
+<p>Hash tables are good for databases where we need to search for a specific value. They also allow fast inserts, we don’t need to worry too much about collisions. Hash tables allow to choose the indexes we want.</p>
+<p>The problem whith hash tables is that they are unordered, we can’t know the order in which items were inserted into the hash table. And they are very slow to iterate over.</p>
 
 </div>
 </div>
