@@ -910,13 +910,12 @@ function firstRecurringCharacter(arrayOfInt) {
   const hasInt = {};
   // loop arrayOfInt
   for (let i = 0; i &lt; arrayOfInt.length; i++) {
-    // if int never seen
-    if (!hasInt[arrayOfInt[i]]) {
-      // add to list of seen int
-      hasInt[arrayOfInt[i]] = true;
-    } else { // else return reccuring int
+    // if int is recurring, return int
+    if (hasInt[arrayOfInt[i]]) {
       return arrayOfInt[i];
     }
+    // else add to list of seen int
+    hasInt[arrayOfInt[i]] = true;
   }
 
   // if no match has been found, return undefined
@@ -938,6 +937,11 @@ for (let i = 0; i &lt; 20; i++) {
 }
 
 // test
+console.log(&#39;test: &#39; + firstRecurringCharacter([1,1]));
+console.log(&#39;test: &#39; + firstRecurringCharacter([1,2,3]));
+console.log(&#39;[2,5,1,2,3,5,1,2,4] returns 2: &#39; + firstRecurringCharacter([2,5,1,2,3,5,1,2,4]));
+console.log(&#39;[2,5,5,2,3,5,1,2,4] returns 5: &#39; + firstRecurringCharacter([2,5,5,2,3,5,1,2,4]));
+console.log(&#39;[2,3,4,5] returns undefined: &#39; + firstRecurringCharacter([2,3,4,5]));
 
 // error, uncomment to check error
 // no input
@@ -958,6 +962,8 @@ function randomArrayGenerator(size = 40, maxValue = 50) {
 Try it out on <a href="https://repl.it/@RilDev/Hash-Table-Question-First-Recurring-Character" target="_blank">repl.it</a>!
 </p>
 </div>
+<p>Note: Those questions where you use a hash table instead of a nested loop are very common. It passes the time complexity from <code>O(n^2)</code> to <code>O(n)</code>.</p>
+<p>The tradeoff for fast lookups <code>O(1)</code> is space complexity O(n). Because we have to create a variable that keeps track of all the already looped values.</p>
 </div>
 </div>
 <div id="pros-and-cons-of-hash-tables" class="section level3">
@@ -972,15 +978,15 @@ Try it out on <a href="https://repl.it/@RilDev/Hash-Table-Question-First-Recurri
 </thead>
 <tbody>
 <tr class="odd">
-<td>Fast Search</td>
+<td>Fast Lookups*</td>
 <td>Unordered</td>
 </tr>
 <tr class="even">
-<td>Fast Insert*</td>
-<td>Slow Iteration</td>
+<td>Fast Insert</td>
+<td>Slow Key Iteration</td>
 </tr>
 <tr class="odd">
-<td>Custom Indexes</td>
+<td>Flexible Indexes</td>
 <td></td>
 </tr>
 </tbody>
