@@ -829,6 +829,31 @@ Flexible Indexes |
 ```
 
 Hash tables are good for databases where we need to search for a specific value. They also allow fast inserts, we don't need to worry too much about collisions. Hash tables allow to choose the indexes we want.
-
+:
 The problem whith hash tables is that they are unordered, we can't know the order in which items were inserted into the hash table. And they are very slow to iterate over.
+
+## Linked List Data Structure
+
+A linked list is, like the name suggests, a list that is linked. They are composed of nodes of 2 elements for singly linked lists and 3 elements for doubly linked lists. In a singly linked list, each node has the value strored and a pointer to the next element in the list. The first node of the list is called the head, and the last node of the list is called the tail. Linked lists are "Null terminated", the tail's pointer points to `null`.
+
+Here is what it could look like in pseudo-code:
+
+```
+value: 1
+next: 123 --> value: 2
+              next: 234 --> value: 3
+                            next: 456 --> null
+```
+
+JavaScript doesn't come with a built-in linked-list. But as for many things in programming: if we don't have something, we can create it!
+
+You can play with this [visual linked list](https://visualgo.net/en/list){target="blank"}.
+
+### Linked List's Big O
+
+prepend | append | lookup | insert | delete
+--- | --- | --- | --- | ---
+O(1) | O(1) | O(n) | O(n) | O(n)
+
+In arrays, the elements are indexed, so it is very quick to look up the value, it's an `O(1)` operation. In a linked list, we start at the head and then travers the list until we reach the desired index, it's an `O(n)` operation. Here we say traversal because we travers the list until we reach the desired value with at `while` loop. Arrays are sequentially stored in memory, so iterating over its items is faster than interating over the linked list items scattered in memory, even though they are both `O(n)` operations. The inserts however are a lot faster in linked-lists than in arrays. So we could say that linked-lists are ordered hash-tables.
 
